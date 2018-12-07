@@ -1,0 +1,63 @@
+body{
+	background-color:#ccc;
+}
+img{
+	display:inline-block;
+	margin:30px;
+	border:8px solid white;
+	border-radius:5px;
+}
+.blur:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:blur(6px);
+}
+.brightness:hover{
+	cursor:pointer;
+	filter:brightness(2);
+}
+.contrast:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:contrast(250%);
+}
+.saturate{
+	filter:saturate(0%);
+}
+.saturate:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:saturate(500%);
+}
+.opacity{
+	filter:opacity(23%);
+}
+.opacity:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:opacity(100%);
+}
+.invert:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:invert(100%);
+}
+.sepia:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:sepia(100%);
+}
+.grayscale:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:grayscale(100%);
+}
+.hue-rotate:hover{
+	cursor:pointer;
+	filter:hue-rotate(36deg);
+}
+.drop-shadow:hover{
+	cursor:pointer;
+	transition:0.5s ease-in-out;
+	filter:drop-shadow(15px 15px 10px black);
+}
