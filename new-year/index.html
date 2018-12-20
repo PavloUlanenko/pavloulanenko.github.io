@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Shojumaru" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+	<title>Happy New Year!</title>
+	<style>	
+		html, body, .wrapper{
+			width: 100%;
+			height: 100%;
+			font-size: 16px;
+		}
+		.wrapper{
+			background: url(img/winter-wallpaper.jpg) no-repeat center;
+			background-size: cover;
+			position: relative;
+			overflow: hidden;
+		}
+		.wrapper> *{
+			position: absolute;
+			transform:translate3d(0,0,0);
+		}
+		.overlay{
+			display: block;
+			position: fixed;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			background: url(img/christmas-wallpaper.jpg);
+			z-index:33;
+			font-family: 'Mountains of Christmas', cursive;
+		}
+		.overlay input{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%, -50%);
+			width: 20%;
+			padding: 10px;
+			padding-bottom:2.5%;
+			padding-top: 2.5%;
+			font:italic 3rem monospace;
+			text-align: center;
+			border-radius:20px;
+			outline:none;
+		}
+		.overlay label{
+			display: inline-block;
+			width: 100%;
+			margin: 5% auto;
+			font-size: 3rem;
+			font-family: 'Mountains of Christmas', cursive;
+			line-height: 1.5;
+			color:#fff;
+			text-align: center;
+		}
+		.message{
+			width: 20%;
+			min-width:320px;
+			height: 30%;
+			background: #fff;
+			border-radius:10px;
+			text-align: center;
+			padding: 20px;
+			top:50%;
+			left:50%;
+			position: fixed;
+			transform:translate(-50%, -50%);
+			display: none;
+			font:2rem small-caps cursive;
+		}
+		.message.pseudo::before{
+			font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f057";
+			position: absolute;
+			font-size: 2rem;
+			color:#fff;
+			text-shadow:0 0 10px #fff;
+			top:-2.5rem;
+			right: -2.5rem;
+			cursor: pointer;
+		}
+		.countdown{
+			color:#fff;
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform:translateX(-50%);
+			padding: 20px;
+			font-size: 2rem;
+			text-align: center;
+			background: #d42426;
+			font-family: 'Shojumaru', cursive;
+		}
+		.snowflakes-overlay{
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			/*background: url(img/snowflakes-overlay.png) repeat center;*/
+			background-size: 200px;
+		}
+		.snowflake-spark{
+			top:50%;
+			left: 30%;
+			width: 20%;
+			height:42%;
+			background: url(img/snowflake-spark.png) no-repeat center;
+			background-size: contain;
+			z-index:2;
+		}
+		.snow-and-distant-trees{
+			bottom: 0;
+			width: 100%;
+			height: 15%;
+			background: url(img/snow-and-trees.png) repeat-x bottom;
+			z-index:2;
+		}
+		.snow-and-fur-trees{
+			left:-3%;
+			bottom: 0;
+			width: 100%;
+			height: 19%;
+			background: url(img/snow-and-fur-trees.png) repeat-x bottom;
+			z-index:3;
+		}
+		.blank-snow{
+			left:-3%;
+			bottom: 0;
+			width: 100%;
+			height: 5%;
+			background: url(img/blank-snow.png) repeat-x bottom;
+			z-index:4;
+		}
+		.fur-tree-snow{
+			right: 5%;
+			bottom:0;
+			height: 41%;
+			width: 25%;
+			background: url(img/fur-tree-snow.png) no-repeat bottom;
+			background-size:contain;
+			z-index:2;
+		}
+		.tree-full-of-snow{
+			left: 8%;
+			bottom: 0;
+			height: 41%;
+			width: 25%;
+			background: url(img/tree-full-of-snow.png) no-repeat bottom;
+			background-size:contain;
+			z-index:2;
+		}
+		.the-north-pole{
+			left: -3%;
+			bottom: 0;
+			height: 23%;
+			width: 11%;
+			background: url(img/the-north-pole.png) no-repeat bottom;
+			background-size:contain;
+			z-index:2;
+		}
+		.santa{
+			left: 45%;
+			bottom: 0;
+			height: 30%;
+			width: 15%;
+			background: url(img/santa.png) no-repeat bottom;
+			background-size:contain;
+			z-index:4;
+		}
+		.star{
+			top: 3%;
+			left: 3%;
+			height: 10%;
+			width: 6%;
+			background: url(img/star.png) no-repeat top;
+			background-size:contain;
+			z-index:2;
+			animation:move 4s ease-in-out 4 alternate;
+		}
+		.woman{
+			bottom:0;
+			left: 30%;
+			width: 7%;
+			height: 27%;
+			z-index:4;
+			background: url(img/woman.png) no-repeat bottom;
+			background-size:contain;
+		}
+		.man{
+			bottom:0;
+			right: -50%;
+			width: 7%;
+			height: 27%;
+			z-index:4;
+			background: url(img/man.png) no-repeat bottom;
+			background-size:contain;
+		}
+		.speech{
+			position: absolute;
+			top: -23%;
+			right: -62%;
+			width: 100%;
+			padding: 3px;
+			line-height: 1.5;
+			background: #fff;
+			border-radius:10px;
+			display: none;
+			text-align: center;
+			font: bold 1.5rem Verdana sans-serif;
+		}
+		.speech-star{
+			top:-70%;
+			display: none;
+		}
+		.speech::after{
+			content:'';
+			position: absolute;
+			bottom:-12px;
+			left: 3%;
+			border-top:14px solid #fff;
+			border-left:7px solid transparent;
+			border-right:7px solid transparent;
+		}
+		@keyframes move{
+			from{
+				transform:translateX(0);
+				top:0;
+			}
+			to{
+				transform:translateX(1000%);
+				top:59%;
+			}
+		}
+		/*PRESENT*/
+		.present{
+			bottom:-15%;
+			right:20%;
+			cursor:pointer;
+			z-index:3;
+			box-sizing: border-box;
+			opacity:1;
+			transition:opacity 2s linear;
+		}
+		.cube>div{
+		  width: 100px;
+		  height: 100px;
+		  border:10px solid #0f0;
+		  background: #f00;
+		  position: absolute;
+		/*   backface-visibility:hidden; */
+		  transform-origin:50% 50% -60px;
+		  text-align: center;
+		  line-height: 100px;
+		  color:#fff;
+		  font-size: 2rem;
+		  box-shadow:0 0 20px 5px gold;
+		  opacity:1;
+		}
+		.cube{
+		  position: relative;
+		  width: 100px;
+		  height: 100px;
+		  transform-origin:50% 50% -60px;
+		  transform-style:preserve-3d;
+		  opacity:1;
+		}
+		.block{
+		  perspective:900px;
+		  margin: 80px;
+		}
+		.side-2{
+		  transform:rotateY(90deg);
+		}
+		.side-3{
+		  transform:rotateY(-90deg);
+		}
+		.side-4{
+		  transform:rotateX(90deg);
+		}
+		.side-5{
+		  transform:rotateX(-90deg);
+		}
+		.side-6{
+		  transform:rotateY(180deg);
+		}
+		.claddagh-ring{
+			width: 75px;
+			height: 79px;
+			display: none;
+			background: url(img/claddagh.png) no-repeat center;
+			background-size:contain;
+			position: absolute;
+			bottom: -58%;
+		}
+		/*PRESENT*/
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="overlay">
+			<label>When it is New Year write down the name of Santa's favorite reindeer ever.<br/>P.S. His nose is always red (as Santa's actually)<input type="text"></label>
+			<div class="message pseudo"></div>
+			<div class="countdown"></div>
+		</div>
+		<div class="snowflakes-overlay"></div>
+		<div class="snowflake-spark parallax" data-movement="485"></div>
+		<div class="snow-and-distant-trees parallax" data-movement="15"></div>
+		<div class="snow-and-fur-trees parallax" data-movement="20"></div>
+		<div class="blank-snow"></div>
+		<div class="fur-tree-snow parallax" data-movement="30"></div>
+		<div class="tree-full-of-snow parallax" data-movement="30"></div>
+		<div class="the-north-pole parallax" data-movement="20"></div>
+		<div class="santa parallax" data-movement="120"></div>
+		<div class="star" data-movement="20">
+			<div class="speech speech-star">C'mon hug him!</div>
+		</div>
+		<div class="woman" data-movement="120"></div>
+		<div class="man">
+			<div class="speech speech-man" data-movement="120"></div>
+		</div>
+		<div class="block present parallax" data-movement="100">
+			<div class="claddagh-ring"></div>
+		    <div class="cube">
+		      <div class="side-1"><i class="fas fa-candy-cane"></i></div>
+		      <div class="side-2"><i class="fas fa-sleigh"></i></div>
+		      <div class="side-3"><i class="fas fa-hat-wizard"></i></div>
+		      <div class="side-4"><i class="fas fa-tree"></i></div>
+		      <div class="side-5"><i class="fas fa-star"></i></div>
+		      <div class="side-6"><i class="fas fa-gifts"></i></div>
+		    </div>
+	  	</div>
+	</div>
+	<script>
+			//DAYS COUNTER
+			function daysLeftNewYear(){
+			  let today = new Date();
+			  let newYear = new Date("January,1 2019");
+			  let msPerDay = 24*60*60*1000;
+			  let daysLeft = Math.floor((newYear.getTime()-today.getTime())/msPerDay);
+			  let hoursLeft = 24-today.getHours();
+			  let minutesLeft = 60-today.getMinutes();
+			  let secondsLeft = 60-today.getSeconds();
+			  document.getElementsByClassName("countdown")[0].innerText = "for New Year "+daysLeft+" days, "+hoursLeft+" hours, "+minutesLeft+" minutes and "+secondsLeft+" seconds left";
+			}
+			setInterval(daysLeftNewYear, 1000);
+			///DAYS COUNTER
+
+			let currentDate = new Date();
+			let day = currentDate.getDate();
+			let month = currentDate.getMonth();
+			let input = document.getElementsByTagName("input")[0];
+			let message = document.getElementsByClassName("message")[0];
+			let inputVal;
+			let i = 0;
+			let text ="";
+			function print(){
+				if(i<text.length){
+					message.innerHTML += text[i];
+					i++;
+					setTimeout(print,150);
+				}
+			}
+			input.onchange = function(){
+				inputVal = this.value;
+				message.innerHTML = "";
+				if(inputVal.toLowerCase()==="rudolf"){
+					if(day===1 && month===0){
+						document.querySelector(".overlay").style.display="none";
+						mainWindow();
+					}else{
+						message.style.display = "block";
+						text += "Sorry beauty, today is not New Year yet.  Have a patience!";
+						print();
+					}
+				}else{
+					message.style.display = "block";
+					text += "Sorry, but the answer is wrong! Google it!";
+					print();
+				}
+				document.querySelector(".message.pseudo").onclick = function(){
+					message.style.display = "none";
+				}
+			}	
+		function mainWindow(){
+			let star = document.getElementsByClassName("star")[0];
+			let man = document.getElementsByClassName("man")[0];
+			let present = document.getElementsByClassName("cube")[0];
+			let start = 0;
+			document.onmousemove = function(e){
+				let width = window.innerWidth;
+				let height = window.innerHeight;
+				let offsetX = e.pageX / width;
+				let offsetY = e.pageY / height*20;
+				let movingObj = document.getElementsByClassName("parallax");
+				for(let i=0;i<movingObj.length;i++){
+					let dataMove = movingObj[i].dataset.movement;
+					movingObj[i].style.transform = "translate3d(" + offsetX * dataMove + "px, " + offsetY + "px, 0)";
+					// movingObj[i].style.transform = "translate3d(250px, 100px,  0)";
+				}
+			}
+			star.addEventListener("webkitAnimationEnd", starMove);
+			star.addEventListener("animationend", starMove);
+			function starMove(){
+				star.style.top = 59+'%';
+				star.style.left = 31+'%';
+				document.querySelector(".speech-star").style.display = "block";
+			}
+			function manMove(){
+				man.style.right = start+'%';
+				start+=1;
+				if(man.style.right==="60%"){
+					document.querySelector(".speech-man").style.display = "block";
+					document.querySelector(".speech-man").innerText = "HUG YOU !!!";
+					clearInterval(timer);
+				}
+			}
+			let timer = setInterval(manMove,50);
+
+			// PRESENT
+				present.onclick = function(){
+					this.parentElement.style.bottom = "0";
+					this.parentElement.style.zIndex = "5";
+				  present.onmousemove = function(e){
+				    present.style.transform ="rotateX("+-e.pageY+"deg) rotateY("+-e.pageX+"deg)";
+				  }
+				  present.ondblclick = function(){
+				  	let opacity = 1;
+				  	let timer = setInterval(function(){
+				  		if(opacity<=0){
+				  			clearInterval(timer);
+				  			document.getElementsByClassName("claddagh-ring")[0].style.display = "block";
+				  			document.querySelector(".speech-man").innerText = "MY HEART BELONGS TO YOU!!!";
+				  		}else{
+				  			opacity-=.05;
+				  			let sides = document.querySelectorAll(".cube div");
+				  			for(let i=0;i<sides.length;i++){
+				  				sides[i].style.opacity = opacity;
+				  			}
+				  		}
+				  	}, 70);
+				  }
+				}
+			// /PRESENT
+		}
+	</script>
+</body>
+</html>
