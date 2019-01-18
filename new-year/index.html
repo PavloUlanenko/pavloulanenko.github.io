@@ -341,7 +341,8 @@
 			//DAYS COUNTER
 			function daysLeftNewYear(){
 			  let today = new Date();
-			  let newYear = new Date("January,1 2019");
+			  let nextYear = today.getFullYear()+1;
+			  let newYear = new Date("January,1"+nextYear);
 			  let msPerDay = 24*60*60*1000;
 			  let daysLeft = Math.floor((newYear.getTime()-today.getTime())/msPerDay);
 			  let hoursLeft = 24-today.getHours();
