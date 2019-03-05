@@ -1,0 +1,168 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+}
+.wrapper{
+  width: 50%;
+  margin: 100px auto;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.envelope{
+  position: relative;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  right: 0;
+  top: 50%;
+  transition: all 2s ease;
+}
+.envelope.-active{
+  right: -530px;
+}
+.top,
+.bottom{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.envelope-wrap{
+  width: 300px;
+  height: 200px;
+  background: burlywood;
+  position: relative;
+  cursor: grab;
+  perspective: 1200px;
+  transform-style:preserve-3d;
+  transform: none;
+}
+.front-side{
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding-top: 10%;
+  text-align: center;
+  background: burlywood;
+  z-index: 3;
+  font: italic 900 2rem cursive;
+  color: #fff;
+}
+.back-side{
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background: inherit;
+  transform: rotateY(-180deg);
+  z-index: 3;
+  background-repeat: no-repeat;
+  background-image: url(https://cdn3.vectorstock.com/i/1000x1000/02/97/wax-seal-on-transparent-background-vector-21810297.jpg);
+  background-position: 50%;
+  background-size: 100px 100px;
+}
+.close-label.-active{
+  box-shadow: inset -3px 0 6px 0 rgba(0,0,0,.4);
+  right: -10%;
+  transform: scale(-1);
+}
+.close-label{
+  background: burlywood;
+  position: absolute;
+  top: 1%;
+  right: 0;
+  height: 98%;
+  width: 10%;
+  border-left: 1px solid #000;
+  box-shadow: 10px 0 5px -4px rgba(80, 120, 120, 0.5);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  z-index: 1;
+}
+.letter{
+  position: absolute;
+  background: #fff;
+  width: 70%;
+  height:60%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  z-index: -1;
+  transition: all 200ms ease-in-out;
+  padding: 10px;
+  border: 1px solid #000;
+}
+.letter.opened{
+  width: 320px;
+  height: auto;
+  white-space: normal;
+  z-index: 10;
+}
+.letter.opened::first-letter{
+  padding: 10px;
+  margin-right: 5px;
+  background: coral;
+  color: #fff;
+  font-size: 2rem;
+  float: left;
+}
+.envelope > .top{
+  width: 100px;
+  border-top: 50px solid #f00;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  transition:all 200ms ease;
+}
+.envelope > .bottom{
+  width: 100px;
+  height: 75px;
+  background: coral;
+}
+.envelope:hover .top{
+  top:-50px;
+  transform: scale(-1);
+}
+.envelope:hover .letter{
+  z-index: 1;
+  top: -10%;
+}
+.photo {
+  background: #fff;
+  border: 3px solid #000;
+  overflow: hidden;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+  transition: right 1s ease-in-out, z-index .3s .1s, box-shadow .3s .1s !important;
+}
+.photo > img {
+  display: block;
+}
+.photo:hover {
+  z-index: 3 !important;
+  box-shadow: 0 14px 10px 0 #111;
+}
+.photo.-active:first-of-type {
+  transition-delay: .2s;
+  right: -200px;
+  z-index: 1;
+}
+.photo.-active:nth-of-type(2) {
+  transition-delay: .6s;
+  top: 25px;
+  right: -300px;
+  z-index: 2;
+}
+.photo.-active:last-of-type {
+  transition-delay: 1.2s;
+  right: -425px;
+  z-index: 1;
+}

@@ -1,0 +1,172 @@
+/*Fonts usage:
+Title: Roboto and the rest
+Sign buttons: Proxima-nova
+*/
+*, *::before, *::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	font-family: 'Roboto', sans-serif;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+label {
+	display: block;
+	position: relative;
+}
+.wrapper {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+.form1-wrap {
+	max-width: 745px;
+	margin: 20px auto;
+	background: #f54d56;
+	padding: 70px 40px;
+}
+.authorization {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background: #f9f9f9;
+	padding: 30px 25px;
+	border:5px dashed red;
+}
+ h3{
+ 	text-transform: uppercase;
+ 	font-weight: 700;
+ 	margin-bottom: 5px;
+ }
+ input {
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	border: none;
+ 	outline: none;
+ 	z-index: 1;
+ 	padding: 10px;
+ }
+ input:focus-within {
+ 	border: 1px solid #000;
+ }
+ input:focus + .description{
+ 	display: none;
+ }
+ .description {
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 5%;
+ 	z-index: 2;
+ 	transform: translateY(-50%);
+ }
+ .phone-and-email,
+ .password{
+ 	width: 305px;
+ 	height: 30px;
+ 	padding: 10px;
+ 	border: 1px solid #c3c3c3;
+ 	background: #fff;
+ 	font: 400 .6875rem 'Roboto', sans-serif;
+ 	color: #878787;
+ 	margin-top: 5px;
+ }
+ .login {
+ 	color: #fff;
+ 	width: 85px;
+ 	font: 300 .6875rem 'Roboto', sans-serif;
+ 	text-transform: uppercase;
+ 	background: #f54d56;
+ 	padding: 7px 20px;
+ 	text-align: center;
+ 	cursor: pointer;
+ 	margin-top: 10px;
+ }
+ .signup,
+ .recover-account {
+ 	color: #666;
+ 	font-weight: 300;
+ 	font-size: .5625rem;
+ 	margin: 15px 0 18px;
+ }
+ .signup > a {
+ 	color: #f54d56;
+ 	text-transform: uppercase;
+ 	margin-left: 10px;
+ }
+.facebook, 
+.google {
+ 	color: #fff;
+ 	display: inline-block;
+ 	/*width: 130px;*/
+ 	padding: 5px;
+ 	font: italic 400 .625rem cursive;
+ 	text-transform: capitalize;
+ }
+.facebook >*, 
+.google >* {
+	display: inline-block;
+}
+.facebook > i, 
+.google > i {
+	font-size: .75rem;
+	font-weight: 900;
+	padding: 5px;
+	border-right: 1px solid #304c89;
+}
+ .facebook {
+ 	background: #48629b;
+ }
+ .google {
+ 	background: #dc4b38;
+ }
+ input[type="submit"] {
+ 	z-index: -1;
+ }
+ .personal-cabinet {
+ 	font: 300 .625rem 'Roboto', sans-serif;
+ 	text-transform: capitalize;
+ 	padding: 25px 10px;
+ 	margin-left: 15px;
+ 	border-left: 1px solid #c3c3c3;
+ }
+ .personal-cabinet li a {
+ 	color: #000;
+ 	text-decoration: none;
+ 	display: block;
+ 	margin-bottom: 20px;
+ 	background-position: 0 0;
+ 	background-size: auto;
+ 	background-repeat: no-repeat;
+ 	padding-left: 35px;
+ }
+ .orders {
+ 	background-image: url(img/delivery.png);
+ }
+ .news {
+ 	background-image: url(img/news.png);
+ }
+ .wishlist {
+ 	background-image: url(img/heart.png);
+ }
+ @media only screen and (max-width:640px) {
+ 	.registration,
+ 	.personal-cabinet {
+ 		width: 100%;
+ 	}
+ 	.authorization {
+ 		flex-direction: column;
+ 	}
+ }
