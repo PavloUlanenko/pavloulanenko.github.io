@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>B&J Task</title>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="form-wrap">
+      <p class="output"></p>
+      <form class="replace-value">
+        <fieldset class="substitute">
+          <legend>Text change</legend>
+          <input type="text" class="put" placeholder="Paste your text here">
+          <input type="reset" value="Clear">
+          <input type="text" class="set" placeholder="Press &#34;Copy&#34; button to copy">
+          <button class="copy" data-status="Copied!">Copy</button>
+        </fieldset>
+        <fieldset class="rules">
+          <legend>Add a rule</legend>
+          <p class="warning"><i>&#9760;</i>Think twice! Make sure your rule will not affect the correct words</p>
+          <label>What to substitute<input type="text" class="wrong-data"></label>
+          <label>What substitute with<input type="text" class="correct-data"></label>
+          <button class="add-rule">Add a new rule</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>
+</html>

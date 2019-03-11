@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background: #ccc;
+  padding: 20px;
+}
+button,
+input[type="reset"] {
+  cursor: pointer;
+  outline: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-variant: small-caps;
+  width: 150px;
+  margin: 10px auto;
+  position: relative;
+}
+button:focus,
+input[type="reset"]:focus {
+  box-shadow: 0 5px 5px 0 #999;
+}
+.copy.-active {
+  transition: all .5s ease;
+}
+.copy.-active::before {
+  content: attr(data-status);
+  display: block;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  padding: 10px 20px;
+  background: rgba(0,0,0,.4);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: .7rem;
+}
+.form-wrap {
+  max-width: 745px;
+  margin: 0 auto;
+  background: #f54d56;
+  padding: 70px 40px;
+}
+.replace-value {
+  background: #f9f9f9;
+  padding: 30px 50px;
+  border: 5px dashed #f00;
+}
+.substitute {
+  border-bottom: 3px solid #444;
+  margin-bottom: 30px;
+}
+legend {
+  font-size: 1.5rem;
+  font-family: cursive;
+}
+label {
+  display: block;
+  padding: 10px 0;
+}
+input[type="text"] {
+  display: block;
+  width: 305px;
+  height: 30px;
+  padding: 10px;
+  border: 1px solid #c3c3c3;
+  background: #fff;
+  font: 400 .6875rem 'Roboto', sans-serif;
+  color: #878787;
+  margin-top: 5px;
+}
+input[type="text"]:focus {
+  outline: none;
+  border: 1px solid #000;
+}
+.warning {
+  font-style: italic;
+  color: #878787;
+  padding: 10px;
+}
+.warning i {
+  vertical-align: middle;
+  margin: 5px;
+  font: 400 normal 2rem serif;
+  color: #f00;
+}

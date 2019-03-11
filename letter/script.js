@@ -1,11 +1,9 @@
 window.onload = function(){
   let envelope = document.querySelector(".envelope");
   let showLetter = function(e){
-    e.stopPropagation();
-  letter.classList.toggle("opened");
-    // envelopeWrapper.removeEventListener("mousedown", rotateEnvelope, true);
+    letter.classList.toggle("opened");
   }
-   envelope.addEventListener("dblclick", function() {
+ envelope.addEventListener("dblclick", function() {
    showLetter();
      envelope.classList.toggle("-active");
  });
@@ -32,16 +30,20 @@ window.onload = function(){
         currentValue.classList.remove("-active");
     });
   }
-  envelopeWrapper.addEventListener("mouseover", function() {
+  envelopeWrapper.addEventListener("mouseover", showPhotosTrue);
+  function showPhotosTrue() {
     showPhotos("show");
-  });
+  }
   envelopeWrapper.addEventListener("mouseout", function() {
     showPhotos();
   });
   function rotateEnvelope(){
-   document.addEventListener("mousemove", rotate, true);
+    document.addEventListener("mousemove", rotate, true);
   }
   envelopeWrapper.addEventListener("mousedown", rotateEnvelope);
+  envelopeWrapper.addEventListener("mousedown", function() {
+    envelopeWrapper.removeEventListener("mouseover", showPhotosTrue);
+  });
   document.onmouseup = function(){
     document.removeEventListener("mousemove", rotate, true);
   }
