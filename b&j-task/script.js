@@ -15,8 +15,8 @@ window.addEventListener("load", function() {
       console.log({pattern});
     }else {
       pattern = [
-        ["w/o", "w/", "DR", "Dnver", "nght", "Pass,", "Pass.", "Dover", "AJC", "A'C", "Belov/"],
-        ["without", "with", "door", "Driver", "right", "Passenger", "Passenger", "Driver", "A/C", "A/C", "Below"]
+        ["w/o", "w/", "DR", "Dnver", "nght", "Pass.", "Dover", "AJC", "A'C", "Belov/"],
+        ["without", "with", "door", "Driver", "right", "Passenger", "Driver", "A/C", "A/C", "Below"]
       ];
     }
     function check(str) {
