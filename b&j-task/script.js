@@ -6,6 +6,7 @@ window.addEventListener("load", function() {
       string = this.value;
       result = string.replace(/(\s\d+)/g, ' |$1');
       result = check(result);
+      result = putCommas(result);
       document.querySelector(".set").value = result;
     });
     let pattern = []; 
@@ -26,6 +27,25 @@ window.addEventListener("load", function() {
            newString = newString.replace(exp, pattern[1][i]);
          }
         return newString;
+    }
+    function putCommas(str) {
+      let arr = str.split(" ");
+      let arr2 = arr.map(value => value);
+      arr2 = arr.map(value => {
+          let temp = [];
+          if(typeof +value==="number"){
+              if(value.match("-")) {
+                  temp = value.split("-");
+                  if(+temp[1] - +temp[0] === 1) {
+                      value = temp[0]+","+temp[1];
+                  }
+              }
+          }
+          return value;
+      });
+      let result = arr2.join(" ");
+      result = result.replace(/(&nbsp;)*/g, "");
+      return result;
     }
     let copy = document.querySelector(".copy");
     copy.addEventListener("click", function() {
