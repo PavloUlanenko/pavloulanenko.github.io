@@ -1,0 +1,24 @@
+:root {
+	--bgcolor : #ccc;
+	--fsizebig : 2rem;
+	--fsizenormal : 1rem;
+}
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+}
+html, body{
+	font-size: 16px;
+	width: 100%;
+	height: 100%;
+}
+.wrapper {
+	width: 100%;
+	height: 100%;
+	background-color: var(--bgcolor);
+}
+h1 {
+	font-size: var(--fsizebig);
+	margin: 0;
+	text-align: center;
+}
