@@ -3,24 +3,3 @@
 	  margin: 0;
 	  padding: 0;
 	}
-	body{
-	  background: #000;
-	}
-	canvas{
-	  display: block;
-	}
-	#stop{
-		font:900 1rem Arial, serif;
-		width:50px;
-		height:50px;
-		border-radius:50%;
-		background:red;
-		position:fixed;
-		top:100px;
-		left:50%;
-		z-index:1;
-		cursor:pointer;
-		color:#fff;
-		line-height:50px;
-		text-align:center;
-	}
