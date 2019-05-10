@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Bad+Script');
+.glowing-text-1 {
+  font-family: 'Bad Script', cursive;
+  font-size: 16rem;
+  text-align: center;
+  background: #000;
+}
+.glowing-text-1 span{
+  animation: glow-1 2s linear infinite;
+}
+.glowing-text-1 span:first-child {
+  animation-delay: 0s;
+}
+.glowing-text-1 span:nth-child(2) {
+  animation-delay: .25s;
+}
+.glowing-text-1 span:nth-child(3) {
+  animation-delay: .5s;
+}
+.glowing-text-1 span:nth-child(4) {
+  animation-delay: .75s;
+}
+.glowing-text-1 span:nth-child(5) {
+  animation-delay: 1s;
+}
+.glowing-text-1 span:nth-child(6) {
+  animation-delay: 1.25s;
+}
+.glowing-text-1 span:last-child {
+  animation-delay: 1.5s;
+}
+@keyframes glow-1 {
+  0%,100% {
+    color: #fff;
+    filter: blur(2px);
+   text-shadow: 0 0 10px #00b3ff,
+                0 0 20px #00b3ff,
+                0 0 40px #00b3ff,
+                0 0 80px #00b3ff,
+                0 0 120px #00b3ff,
+                0 0 200px #00b3ff,
+                0 0 10px #00b3ff,
+                0 0 10px #00b3ff;
+  }
+  5%,95% {
+    color: #111;
+    filter: blur(0px);
+    text-shadow: none;
+  }
+}
+
+/*GLOWING TEXT2*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  width: 100%;
+  height: 100%;
+}
+.glowing-text-2 {
+   background: #060c21;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+.glowing-text-2 {
+  position: relative;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  padding: 50px;
+  font-family: sans-serif;
+  font-weight: 100;
+  filter: blur(.6px);
+  text-shadow: 0 0 1px rgba(255,255,255,1),
+    0 0 2px rgba(255,255,255,1),
+    0 0 4px rgba(255,255,255,1),
+    0 0 8px rgba(255,255,255,1),
+    0 0 16px rgba(255,255,255,1);
+}
+.glowing-text-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00adff;
+  z-index: 1;
+  mix-blend-mode: color;
+  animation: glow-2 10s linear infinite;
+}
+@keyframes glow-2 {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+.glowing-text-2 h1 {
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 6rem;
+  filter: blur(1px);
+  text-shadow: 0 0 10px rgba(255,255,255,1),
+    0 0 20px rgba(255,255,255,1),
+    0 0 40px rgba(255,255,255,1),
+    0 0 80px rgba(255,255,255,1),
+    0 0 160px rgba(255,255,255,1);
+}

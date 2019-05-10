@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Handlebars</title>
+  <style>
+	* {
+	  box-sizing: border-box;
+	  margin: 0;
+	  padding: 0;
+	}
+	html, body {
+	  height: 100%;
+	}
+	.wrapper {
+	  height: 100%;
+	  display: flex;
+	  flex-direction: column;
+	}
+	.wrapper > * {
+	  width: 100%;
+	}
+	main {
+	  flex-grow: 1;
+	  position: relative;
+	  width: 900px !important;
+	  margin: 0 auto;
+	}
+	header {
+	  padding: 50px;
+	  background: #999;
+	}
+	footer {
+	  padding: 30px;
+	  background: #ccc;
+	  text-align: center;
+	}
+	.loader::after {
+	  content: "";
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  display: block;
+	  width: 30px;
+	  height: 30px;
+	  border-radius: 50%;
+	  background: #ccc;
+	  border: 3px solid #000;
+	  border-top: 3px solid blue;
+	  animation: rotate 1.5s linear infinite; 
+	}
+	@keyframes rotate {
+	  0% {
+		  transform: rotate(0deg);
+	  }
+	  100% {
+		  transform: rotate(360deg);
+	  }
+	}
+	.posts {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 10px -15px;
+	}
+	.post {
+		width: 33.3333%;
+		padding: 7.5px;
+	}
+	.post-img {
+		max-width: 100%;
+	}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header></header>
+    <main class="loader"></main>
+    <footer><p>&copy; All rights reserved</p></footer>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+  <script class="hb" type="text/x-handlebars-template">
+    <div class="posts">
+      {{#each this as |post|}}
+        <div class="post">
+          <div class="post-content">
+            <a href="{{@key}}">
+              <img src="{{post.img}}" alt="" class="post-img">
+              <h2>{{post.title}}</h2>
+    </a>
+            <p>{{post.descr}}</p>
+    </div>
+        </div>
+      {{/each}}
+    </div>
+  </script>
+  <script>
+	window.addEventListener("load", function() {
+	  (function() {
+		function getPosts() {
+		  let url = "https://my-blogs-63704.firebaseio.com/posts.json";
+		  fetch(url).then(rawData => rawData.json()).then(data => {
+			console.log(data);
+			let source = document.querySelector(".hb").innerHTML;
+			console.log(source);
+			var template = Handlebars.compile(source);
+			let html = template(data);
+			let mainBlock = document.querySelector("main");
+			mainBlock.classList.remove("loader");
+			mainBlock.innerHTML = html;
+		  });
+		}
+		getPosts();
+	  })();
+	});
+  </script>
+</body>
+</html>

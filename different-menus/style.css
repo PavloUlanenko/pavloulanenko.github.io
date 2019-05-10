@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  width: 100%;
+}
+ul {
+  list-style: none;
+  background-color: #444;
+}
+.main-menu > li {
+  display: inline-block;
+  position: relative; 
+/*In order to position submenu */
+}
+a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+.submenu {
+  display: none;
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background: #999;
+  width: 100%;
+}
+.submenu > li {
+  display: block;
+  border-bottom: 1px solid #000;
+}
+.has-submenu {
+  padding-right: 25px;
+}
+.has-submenu::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 100%;
+}
+.has-submenu > a::after {
+/*   in order that triangle will be a part of the link */
+  content: "\25BC";
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-40%);
+}
+.has-submenu.-active > .submenu {
+  display: block;
+}
+.has-submenu.-active > a::after {
+  content: "\25B2";
+}
