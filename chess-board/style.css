@@ -1,0 +1,21 @@
+@import '../general-styles.css';
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.board {
+  box-sizing: content-box;
+  font-size: 0;
+  width: 320px;
+  height: 320px;
+  margin: 50px auto;
+  border: 1px solid #000;
+}
+.board li {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #999;
+}
+.board li.black {
+  background: #999;
+}
