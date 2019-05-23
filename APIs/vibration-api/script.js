@@ -4,7 +4,8 @@ window.addEventListener("load", function() {
 		// 	oneSec = 
 		// };
 		function vibrate(time=0) {
-			navigator.vibrate(time);
+			navigator.vibrate([1000,2000,3000]);
+			// navigator.vibrate(time);
 		}
 		let form = document.querySelector("form");
 		form.addEventListener("click", function(e) {
@@ -17,5 +18,5 @@ window.addEventListener("load", function() {
 			console.log(e.target);
 		});
 	})();
-	navigator.vibrate([1000,2000,3000]);
+
 });
