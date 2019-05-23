@@ -8,7 +8,7 @@ window.addEventListener("load", function() {
 		}
 		let form = document.querySelector("form");
 		form.addEventListener("click", function(e) {
-			navigator.vibrate([1000]);
+			navigator.vibrate(e.target.dataset.pattern);
 		});
 	})();
 });
