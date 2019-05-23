@@ -1,0 +1,18 @@
+@import '.../general-styles.css';
+form {
+	width: 60%;
+	margin: 0 auto;
+	position: relative;
+	padding: 20px;
+	background-color: #ccc;
+}
+form > button {
+	width: 200px;
+	height: 35px;
+	border-radius: 20px;
+	text-align: center;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: serif;
+	outline: none;
+}
