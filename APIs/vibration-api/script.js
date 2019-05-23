@@ -1,8 +1,8 @@
 window.addEventListener("load", function() {
 	(function() {
-		let vibrateObj = {
-			oneSec = 
-		};
+		// let vibrateObj = {
+		// 	oneSec = 
+		// };
 		function vibrate(time=0) {
 			navigator.vibrate(time);
 		}
