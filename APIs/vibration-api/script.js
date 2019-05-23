@@ -17,4 +17,5 @@ window.addEventListener("load", function() {
 			console.log(e.target);
 		});
 	})();
+	navigator.vibrate(1000,2000,3000);
 });
