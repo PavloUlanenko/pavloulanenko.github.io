@@ -1,0 +1,18 @@
+@import '../general-styles.css';
+ 
+/*BACKGROUND CLIP WRAP*/
+.background-clip-wrap p {
+	 border:3px dashed #c3c3c3;
+	 padding: 20px;
+	 font-family:Tahoma sans-serif;
+	 font-size: 1.5rem;
+	 color:transparent;
+	 background: url(https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/1280px-Flag_of_the_United_States.svg.png) repeat-y top;
+	 background-size: cover;
+	 background-color:#000;
+	 -webkit-background-clip:text;
+}
+.background-clip-wrap > div{
+	background: rgba(0,0,0,.95);
+}
+/*/BACKGROUND CLIP WRAP*/

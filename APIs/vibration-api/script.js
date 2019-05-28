@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
 			if(e.target.classList.contains("perpetually")) {
 				timer = setInterval(function() {
 					navigator.vibrate(result);
-				}, 1000);
+				}, 900);
 				return timer;
 			}
 			if(timer && e.target.classList.contains("stop")) {

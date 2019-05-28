@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tooltips</title>
+	<style>
+		html{
+			font-size: 16px;
+		}
+		body{
+			font-size: 1.1rem;
+			font-family: Arial, "sans-serif";
+			background: #eee;
+		}
+		.wrapper{
+			width: 400px;
+			height: 200px;
+			margin:50px auto;
+			position: relative;
+		}
+		.tooltip{
+			color:#1f8b8a;
+			border-bottom:1px dashed #1d7b77;
+			cursor: pointer;
+			position: relative;
+		}
+		.tooltip::before{
+			content:attr(data-title);
+			width: 200px;
+			background: rgba(0,0,0,.85);
+			text-align: center;
+			padding: 10px 0;
+			bottom:30px;
+			border-radius:5px;
+			font-size: .9rem;
+			color:#fff;
+		}
+		.tooltip::before, .tooltip::after{
+			transition:.7s ease-in-out;
+			display: block;
+			position: absolute;
+			left: 50%;
+			transform:translateX(-50%);
+			opacity: 0;
+			visibility: hidden;
+			margin-bottom: 15px;
+		}
+		.tooltip:hover::after, .tooltip:hover::before{
+			opacity: 1;
+			visibility: visible;
+			margin-bottom: 0;
+		}
+		.tooltip::after{
+			content:"";
+			border-top: 10px solid rgba(0,0,0,.85);
+			border-left:10px solid transparent;
+			border-right: 10px solid transparent;
+			bottom:20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">Lorem ipsum dolor sit amet, <span data-title="Explanation1" class="tooltip">consectetur</span> adipisicing elit. Ullam, tempore blanditiis suscipit molestias magnam, repudiandae consectetur aut hic quo error alias non. Unde sint placeat aliquam non mollitia? Dicta, perspiciatis. Lorem <span data-title="Explanation2" class="tooltip">ipsum</span> dolor sit amet, consectetur adipisicing elit. Quasi cum, eius, deleniti mollitia ullam minus laborum. Explicabo deserunt <span data-title="Explanation3" class="tooltip">quisquam asperiores</span> doloribus, cupiditate culpa, ipsum, nisi dolore, provident nulla repudiandae delectus?</div>
+</body>
+</html>

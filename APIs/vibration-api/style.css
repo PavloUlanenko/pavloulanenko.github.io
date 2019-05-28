@@ -16,3 +16,15 @@ form > button {
 	font-family: serif;
 	outline: none;
 }
+.once {
+	background-color: #5faf4b;
+}
+.stop {
+	background-color: #e4272c;
+}
+.patterned {
+	background-color: #4062b9;
+}
+.custom-patterned {
+	background-color: #455874;
+}

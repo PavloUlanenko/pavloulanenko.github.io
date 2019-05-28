@@ -9,12 +9,17 @@
 <body>
 	<div class="wrapper">
 		<form action="">
-			<button class="1s" data-pattern="1000">Vibrate 1second</button>
+			<button class="once" data-pattern="1000">Vibrate 1 second</button>
 			<span></span>
 			<button class="perpetually" data-pattern="1000">Vibrate perpetually</button>
 			<span></span>
 			<button class="patterned" data-pattern="1000, 2000, 3000"></button>
 			<span></span>
+			<fieldset>
+				<label for=""><input type="number" min="100" max="10000" step="100" maxlength="5"><span class="placeholder"></span></label>
+				<label for=""><input type="number" min="100" max="10000" step="100" maxlength="5"><span class="placeholder"></span></label>
+				<label for=""><input type="number" min="100" max="10000" step="100" maxlength="5"><span class="placeholder"></span></label>
+			</fieldset>
 			<button class="custom-patterned"></button>
 			<span></span>
 			<button class="stop" data-pattern="0">Stop vibration</button>

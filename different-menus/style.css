@@ -7,7 +7,7 @@ html, body {
   height: 100%;
   width: 100%;
 }
-ul {
+ul.main-menu {
   list-style: none;
   background-color: #444;
 }
@@ -60,3 +60,82 @@ a {
 .has-submenu.-active > a::after {
   content: "\25B2";
 }
+
+
+/*MENU-2*/
+.menu-2-wrap {
+  text-transform: uppercase;
+  background:linear-gradient(#1a1a1a, #FFF8DC) no-repeat;
+  padding: 30px;
+  margin-top: 30px;
+}
+.nav{
+  list-style:none;
+  padding:0;
+  margin:30px;
+  width:50px;
+  opacity:0.7;
+  transition:opacity 0.3s ease-in-out;
+}
+.nav li{
+  height:50px;
+  width:50px;
+  overflow:hidden;
+  border-radius:8px;
+}
+.nav li a{
+  display:block;
+  width:200px;
+  height:40px;
+  line-height:40px;
+  background:#bbb;
+  margin:1px;
+  color:#fff;
+  padding-left:15px;
+  cursor:pointer;
+}
+.nav:hover{
+  opacity:1;
+}
+.nav li a:hover{
+  background:#2fc5ff;
+}
+.nav li:hover{
+  width:200px;
+  height:175px;
+  transition-property:width, height;
+  transition-duration:1,2s;
+  transition-timing-function:ease-in-out;
+  transition-duration:0.8s;
+}
+.nav li a:first-child{
+  font-size:1.1em;
+  height:50px;
+  line-height:50px;
+  position:relative;
+  text-indent:36px;
+}
+.nav li a:first-child::before{
+  content:'';
+  position:absolute;
+  display:block;
+  height:32px;
+  width:32px;
+  top:9px;
+  left:9px;
+}
+.menu a:first-child::before{
+  background:url(img/home.png) center no-repeat;
+}
+.settings a:first-child::before{
+  background:url(img/settings.png) center no-repeat;
+}
+.link a:first-child::before{
+  background:url(img/link.png) center no-repeat;
+}
+.search a:first-child::before{
+  background:url(img/search.png) center no-repeat;
+}
+/*/MENU-2*/
+
+
