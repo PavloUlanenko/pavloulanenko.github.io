@@ -1,0 +1,127 @@
+@import '../general-styles.css';
+header {
+  background: #999;
+  padding: 30px;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+footer {
+  background: #444;
+  color: #fff;
+  padding: 30px;
+}
+main {
+  flex-grow: 1;
+}
+.wrapper {
+  max-width: 1920px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+ul {
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+section {
+  margin: 50px auto;
+  display: flex;
+  position: relative;
+  max-width: 940px;
+  width: 100%;
+  background: skyblue;
+}
+.img-container,
+.description {
+  width: 50%;
+  padding: 30px;
+  overflow: hidden;
+}
+.img-container.-img {
+  position: relative;
+  min-height: 350px;
+}
+.img-container.-img > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+.gallery {
+  width: 100%;
+  display: flex;
+}
+.main-image,
+.thumbnails {
+  width: 50%;
+}
+.main-image {
+  position: relative;
+  padding-bottom: 66.66%;
+}
+.main-image > a {
+  position: absolute;
+  transition: opacity .5s ease;
+  opacity: 0;
+}
+.main-image > a.-active {
+  opacity: 1;
+}
+.thumbnails {
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.thumbnails > li {
+  width: 50%;
+  padding: 0 5px 5px 5px;
+  display: block;
+}
+.thumbnails > li > a {
+  display: block;
+/*   padding: 0 5px 5px 0; */
+  transition: opacity .5s ease;
+}
+.thumbnails > li > a:hover {
+  opacity: .6;
+}
+::selection {
+  background: mistyrose;
+}
+@media screen and (max-width:768px) {
+  section,
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+  .img-container,
+  .description,
+  .main-image,
+  .thumbnails {
+    width: 100%;
+  }
+  .main-image {
+    margin-bottom: 20px;
+  }
+  .thumbnails > li {
+    width: 33.3333%;
+  }
+}
+@media screen and (max-width:480px) {
+  .thumbnails {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
+ .thumbnails > li {
+    flex-shrink: 0;
+   width: 40%;
+  }
+}

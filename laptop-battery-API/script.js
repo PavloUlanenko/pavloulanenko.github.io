@@ -7,7 +7,6 @@ window.addEventListener("load", function() {
         updateChargingInfo();
         updateDischargingInfo();
       }
-      updateBatteryInfo();
       battery.addEventListener("chargingchange", updateChargeInfo);
       battery.addEventListener("levelchange", updateLevelInfo);
       battery.addEventListener("chargingtimechange", updateChargingInfo);
@@ -17,24 +16,30 @@ window.addEventListener("load", function() {
           document.querySelector(".status").innerHTML = "Is charging";
           document.querySelector(".battery-level").classList.add("charging");
         }else {
-          document.querySelector(".status").innerHTML = "Is already charged";
+          document.querySelector(".status").innerHTML = "Is discharging";
           document.querySelector(".battery-level").classList.remove("charging");
         }
       }
       function updateLevelInfo() {
-        document.querySelector(".battery-persentage").innerHTML = battery.level * 100 + '%';
+        document.querySelector(".battery-persentage").innerHTML = parseInt(battery.level * 100) + '%';
         document.querySelector(".battery-level").style.width = battery.level * 100 + '%';
       }
       function updateChargingInfo() {
-        if(!isFinite(battery.chargingTime)) {
+        if(isFinite(battery.chargingTime)) {
           document.querySelector(".charging-time").innerHTML = battery.chargingTime;  
+        }else {
+          document.querySelector(".charging-time").innerHTML = "";
         }
       }
       function updateDischargingInfo() {
-        if(!isFinite(battery.chargingTime)) {
-          document.querySelector(".discharging-time").innerHTML = battery.dischargingTime;  
+        if(isFinite(battery.dischargingTime)) {
+          let time = parseInt(battery.dischargingTime / 60);
+          document.querySelector(".discharging-time").innerHTML = `${time} minutes left to be empty`;  
+        }else {
+          document.querySelector(".discharging-time").innerHTML = "";
         }
       }
+      updateBatteryInfo();
     });
   })();
 });

@@ -15,6 +15,7 @@ form > button {
 	text-transform: uppercase;
 	font-family: serif;
 	outline: none;
+	cursor: pointer;
 }
 .once {
 	background-color: #5faf4b;
@@ -27,4 +28,5 @@ form > button {
 }
 .custom-patterned {
 	background-color: #455874;
+	pointer-events: none;
 }
