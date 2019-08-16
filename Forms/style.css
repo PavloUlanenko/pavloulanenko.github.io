@@ -3,6 +3,8 @@ Title: Roboto and the rest
 Sign buttons: Proxima-nova
 form2-wrap - font-family: 'Gloria Hallelujah', cursive;
 */
+@import url(form6.css);
+
 *, *::before, *::after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -377,3 +379,170 @@ fieldset > h3 {
 .form4-wrap .prev-page:hover {
   box-shadow: 0 0 2px #fff, 0 0 0 3px #27ae60;
 }
+
+/*FORM5*/
+.form5-wrap {
+  background-color: rgba(0,0,0,.6);
+  border-top: 1px solid transparent;
+}
+.form5-wrap > form {
+  min-width: 320px;
+  max-width: 550px;
+  margin: 20px auto;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+  font-family: "Roboto","Arial","Helvetica",sans-serif;
+  overflow: hidden;
+  background: #fff;
+}
+.top-line {
+  background-color: #f3f3f3;
+  padding: 35px 50px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.top-line > h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  float: left;
+  text-transform: uppercase;
+}
+.account-pop-up {
+  color: #393939;
+  text-transform: uppercase;
+  font: 700 1.1rem "Roboto","Arial","Helvetica",sans-serif;
+  line-height: 1.6;
+  float: right;
+  display: block;
+  vertical-align: middle;
+  padding-right: 45px;
+  position: relative;
+}
+.account-pop-up::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  background: url(img/secure-icon-ak.svg) 50% 50% no-repeat;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+}
+.main-block {
+  padding: 7%;
+}
+.main-block > h2 {
+  color: #393939;
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding-bottom: 25px;
+}
+.account-checkbox-group {
+  margin-bottom: 15px;
+}
+
+.account-checkbox-group > label {
+  display: inline-block;
+  margin: 0 40px 15px 0;
+  position: relative;
+}
+.account-checkbox-group > label >input {
+  opacity: 0;
+}
+.account-checkbox-group i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.account-checkbox-group input[type="radio"]:checked + i {
+  background: radial-gradient(#fff 30%, #eab233 30%);
+}
+.input {
+  margin-bottom: 15px;
+}
+.input > label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: .8rem;
+}
+.input > label > span {
+  color: #eab233;
+}
+.field-with-placeholder {
+  border: 1px solid #dedede;
+  overflow: hidden;
+  font-family: "Arial","Helvetica",sans-serif;
+  position: relative;
+  width: 100%;
+}
+.field-with-placeholder > input {
+  height: 100%;
+  width: 100%; 
+  position: relative;
+  border-color: transparent;
+  /*opacity: 0;*/
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1;
+}
+.field-with-placeholder > label {
+  pointer-events: none;
+  color: #b7b7b7;
+  font: 400 1rem "Arial","Helvetica", sans-serif;
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+}
+.field-with-placeholder > input:focus,
+.field-with-placeholder > input.-filled,
+.field-with-placeholder.-not-valid > input
+{
+  z-index: 3;
+}
+.field-with-placeholder.-not-valid {
+  border: 2px solid red;
+}
+.field-with-placeholder.-not-valid::after {
+  content: 'X';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  color: red;
+  z-index: 3;
+  font-size: 1.25rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.error-message {
+  color: red;
+  display: inline-block;
+  font-style: italic;
+  font-size: .8rem;
+  padding: 5px 0;
+}
+.show-password {
+  color: #4062b9;
+  text-transform: uppercase;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: 900;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: .8rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 3;
+}
+
+/*FORM6*/
+Imported above because was transpiled from SCSS

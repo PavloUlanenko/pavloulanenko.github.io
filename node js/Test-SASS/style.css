@@ -1,0 +1,43 @@
+nav li a {
+  display: inline-block;
+  font-variant: small-caps;
+  font-size: 21px;
+  padding: 10px 25px;
+}
+
+nav > ul {
+  columns: 3;
+  background: #ccc;
+}
+
+body {
+  font-size: 14px;
+}
+body .wrapper {
+  color: #0f0;
+  border: 3px solid #000;
+}
+body .wrapper h1 {
+  font-size: 28px;
+  color: #000;
+}
+body .wrapper h1:hover {
+  cursor: pointer;
+}
+
+.main-nav, body .wrapper {
+  display: block;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+footer p {
+  font-size: 25px;
+  color: coral;
+}
+footer p:nth-of-type(2) {
+  color: #00f;
+}
+
+/*# sourceMappingURL=style.css.map */

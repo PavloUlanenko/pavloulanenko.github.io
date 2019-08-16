@@ -1,0 +1,127 @@
+.wrapper {
+  max-width: 1024px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  background: aliceblue;
+  padding: 60px;
+}
+form {
+  font-family: Arial, sans-serif;
+  border: 4px solid #8a36a5;
+  padding: 30px;
+  max-width: 450px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  > h3 {
+    background: #8a36a5;
+    color: #fff;
+    text-align: center;
+    margin: -60px 0 20px;
+    font-size: 1.5rem;
+    padding: 10px 0;
+    cursor: pointer;
+    border-radius: 8px 8px 0 0;
+  }
+  > .input-box {
+    margin-bottom: 20px;
+    position: relative;
+    &.-focused > label {
+      top: -10px;
+      font-size: 0.875rem;
+      color: #d33ebc; 
+    }
+    &.-focused > input {
+      border-color: #000;
+    }
+    > label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 1.15rem;
+      color: #a5a5a5;
+      margin-bottom: 5px;
+      transition: all .5s ease;
+      pointer-events: none;
+    }
+    > input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-bottom: 1px solid #a5a5a5;
+    }
+  }
+  textarea {
+    display: block;
+    padding-bottom: 10%;
+    width: 100% !important;
+    padding: 10px;
+    resize: none;
+  }
+  .submit {
+    text-transform: uppercase;
+    position: relative;
+    display: block;
+    color: #fff;
+    background: #8a36a5;
+    width: 120px;
+    padding: 10px 20px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    &:hover,
+    &:focus-within {
+      box-shadow: 0 0 15px 5px rgba(0,0,0,.5);
+    }
+    & > input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+  .terms-box {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  label[for='terms'] {
+    font-size: 1.2rem;
+  }
+  .checkbox-group{
+    display: block;
+    position: relative;
+    margin-right: 10px;
+    align-self: flex-start;
+    input {
+       position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: 3;
+      cursor: pointer;
+      &:checked + i {
+        background: radial-gradient(#fff 30%, coral 30%);
+      }
+    }
+    i {
+      cursor: pointer !important;
+      position: relative;
+      display: block;
+      width: 23px;
+      height: 23px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      z-index: 2;
+    }
+  }
+}

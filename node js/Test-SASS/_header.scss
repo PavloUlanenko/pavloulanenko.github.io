@@ -1,0 +1,10 @@
+nav li a{
+	display: inline-block;
+	font-variant: small-caps;
+	font-size: $fz*1.5;
+	padding: 10px 25px;	
+}
+nav>ul{
+	columns: 3;
+	background: #ccc;
+}

@@ -1,0 +1,42 @@
+$fz : 14px;
+$color : #0f0;
+
+@import "header";
+@mixin borderRadius($rad){
+	-webkit-border-radius: $rad;
+	-moz-border-radius: $rad;
+	border-radius: $rad;
+}
+
+body{
+	font-size: $fz;
+	.wrapper{
+		color : $color;
+		border: 3px solid #000;
+		@extend .main-nav;
+		h1{
+			font-size: $fz*2;
+			color: #000;
+			&:hover{
+				cursor: pointer;
+			}
+		}
+	}
+}
+.main-nav{
+	display: block;
+	@include borderRadius(20px);
+}
+
+footer{
+	$fz : 25px !global;
+	$col : #00f !global;
+	p{
+		font-size: $fz;
+		color: coral;
+		&:nth-of-type(2){
+			color: $col;
+		}
+	}
+
+}
