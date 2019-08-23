@@ -14,4 +14,13 @@ window.addEventListener("load", function() {
       });
     });
   })();
+
+  //MENU3
+  (function() {
+    let menuButton = document.querySelector(".menu-switch");
+    menuButton.addEventListener("click", toggleMenu);
+    function toggleMenu() {
+      this.classList.toggle("-active");
+    }
+  })();
 });

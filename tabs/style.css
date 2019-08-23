@@ -1,0 +1,39 @@
+@import '../general-styles.css';
+.wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: left;
+}
+section {
+  position: relative;
+  padding: 10px;
+}
+ .tabs {
+  display: flex;
+  flex-wrap: wrap;
+ }
+  .tabs > dt,
+  .tabs > dd {
+    width: 100%;
+  }
+  .tabs > dt {
+    padding: 10px 20px;
+    font: 700 1.15rem Tahoma, sans-serif;
+    background: #aaa;
+    margin-bottom: 5px;
+    cursor: pointer;
+  }
+  dt.-active + dd {
+      display: block;
+  }
+  .tabs > dd {
+    padding: 20px;
+    display: none;
+  }
+@media only screen and (min-width:768px) {
+  .tabs > dt {
+    order: -1;
+    width: auto;
+    margin-right: 5px;
+  }

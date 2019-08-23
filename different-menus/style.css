@@ -1,12 +1,6 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-html, body {
-  height: 100%;
-  width: 100%;
-}
+@import '../general-styles.css';
+@import 'hamburger-menu.css';
+
 ul.main-menu {
   list-style: none;
   background-color: #444;
@@ -16,7 +10,7 @@ ul.main-menu {
   position: relative; 
 /*In order to position submenu */
 }
-a {
+.main-menu a {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -138,4 +132,6 @@ a {
 }
 /*/MENU-2*/
 
-
+/*MENU-3*/
+Imported from SCSS
+/*/MENU-3*/

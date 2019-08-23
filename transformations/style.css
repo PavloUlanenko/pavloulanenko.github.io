@@ -1,0 +1,55 @@
+@import '../general-styles.css';
+.wrapper {
+  width: 80%;
+  margin: 50px auto;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  perspective: 1500px;
+}
+li {
+  width: 250px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  background: rgba(0,0,0, .25);
+  margin: 10px;
+  cursor: pointer;
+  transition: all 1.5s ease;
+}
+li:first-child:hover {
+  transform: translate(70px, -30px);
+}
+li:nth-child(2):hover {
+  transform: rotateY(180deg);
+}
+li:nth-child(3):hover {
+  transform: rotate(90deg);
+}
+li:nth-child(4):hover {
+  transform: scale(2);
+}
+li:nth-child(5):hover {
+  transform: scale(.5);
+}
+li:nth-child(6):hover {
+  transform: skewX(-45deg);
+}
+li:nth-child(7):hover {
+  transform: skewY(-45deg);
+}
+li:nth-child(8):hover {
+  transform: rotate(45deg);
+  transform-origin: 100% 20%;
+}
+li:nth-child(9):hover {
+  transform: scaleY(2);
+}
+li:nth-child(10):hover {
+  transform: scaleX(2);
+}
+li:nth-child(11):hover {
+  transform: scale(-1);
+}

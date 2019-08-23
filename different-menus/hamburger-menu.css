@@ -1,0 +1,131 @@
+.menu-3-wrap li {
+  transition: all .7s ease;
+}
+.block {
+  width: 100%;
+  padding-bottom: 200px;
+  background: coral;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.block > .hamburger {
+  cursor: pointer;
+  background: #fff;
+  padding: 10px;
+  margin: 10px;
+}
+.block > .hamburger > span {
+  display: block;
+  width: 50px;
+  height: 5px;
+  background: #000;
+  margin: 5px auto;
+  border-radius: 8px;
+}
+
+header {
+  width: 100%;
+}
+header > nav {
+  width: 100%;
+  position: relative;
+  background: #009990;
+}
+header > nav > .menu-switch {
+  padding: 10px;
+  margin-left: 20px;
+}
+header > nav > .menu-switch:hover {
+  cursor: pointer;
+}
+header > nav > .menu-switch.-active > span {
+  background: #bbb;
+}
+header > nav > .menu-switch.-active > span:first-child {
+  transform: rotate(45deg) translateY(15px);
+}
+header > nav > .menu-switch.-active > span:last-child {
+  transform: rotate(-45deg) translateY(-15px);
+}
+header > nav > .menu-switch.-active > span:nth-child(2) {
+  opacity: 0;
+}
+header > nav > .menu-switch span {
+  display: block;
+  width: 30px;
+  margin: 5px 0;
+  border-radius: 8px;
+  height: 5px;
+  background: #fff;
+}
+header > nav > .main-navigation {
+  display: flex;
+  background: #009990;
+}
+header > nav > .main-navigation a {
+  display: block;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+header > nav > .main-navigation a:hover {
+  text-decoration: underline;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hamburger.one:hover > span:first-child {
+  transform-origin: top right;
+  transform: translate(-50%, -220%) rotate(-90deg);
+}
+.hamburger.one:hover > span:last-child {
+  width: 25px;
+  transform-origin: center right;
+  transform: translate(-40%, -480%) rotate(-45deg);
+}
+
+.hamburger.arrow:hover {
+  transform: rotate(180deg);
+}
+.hamburger.arrow:hover > span:first-child {
+  width: 45%;
+  transform: translate(-70%, 15%) rotate(-45deg);
+}
+.hamburger.arrow:hover > span:last-child {
+  width: 45%;
+  transform: translate(-70%, -15%) rotate(45deg);
+}
+
+@media only screen and (max-width: 920px) {
+  .main-navigation {
+    justify-content: center;
+    padding: 5px;
+  }
+  .main-navigation > li {
+    flex-grow: 1;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main-navigation {
+    position: absolute;
+    flex-direction: column;
+    left: -300px;
+    top: 100%;
+    width: 200px;
+    padding: 0;
+  }
+  .main-navigation li {
+    border-bottom: 1px solid #fff;
+  }
+
+  .menu-switch {
+    display: inline-block;
+  }
+
+  .menu-switch.-active + .main-navigation {
+    left: 0;
+  }
+}
+
+/*# sourceMappingURL=hamburger.menu.css.map */
