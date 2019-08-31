@@ -5,6 +5,7 @@
       lng: 0
     };
     let positionId = null;
+    let totalDistance = 0;
     let mapContainer = document.getElementById('osm-map');
     let result = document.querySelector('.result');
 
@@ -49,9 +50,8 @@
         target = L.latLng(coordsRaw.lat, coordsRaw.lng);
         map.setView(target);
         L.marker(target).addTo(map);
-        let dst = computeDistance(initialPosition, coordsRaw);
-        console.log(dst);
-        let distance = `You walked: ${computeDistance(initialPosition, coordsRaw)} km`;
+        totalDistance = totalDistance + Math.round(computeDistance(initialPosition, coordsRaw) * 1000) / 1000;
+        let distance = `You walked: ${totalDistance} km`;
         console.log(distance);
         result.innerHTML = distance;
         initialPosition = coordsRaw;
