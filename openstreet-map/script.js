@@ -49,8 +49,10 @@
         target = L.latLng(coordsRaw.lat, coordsRaw.lng);
         map.setView(target);
         L.marker(target).addTo(map);
-        console.log(computeDistance(initialPosition, coordsRaw));
+        let dst = computeDistance(initialPosition, coordsRaw);
+        console.log(dst);
         let distance = `You walked: ${computeDistance(initialPosition, coordsRaw)} km`;
+        console.log(distance);
         result.innerHTML = distance;
         initialPosition = coordsRaw;
       }
