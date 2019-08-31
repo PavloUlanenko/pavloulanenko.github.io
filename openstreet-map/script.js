@@ -1,7 +1,9 @@
  window.addEventListener('load', function() {
   (function() {
-    let coordsRaw = {};
-    let initialPosition;
+    let coordsRaw = initialPosition = {
+      lat: 0,
+      lng: 0
+    };
     let positionId = null;
     let mapContainer = document.getElementById('osm-map');
     let result = document.querySelector('.result');
@@ -17,7 +19,7 @@
     function getPosition(position) {
       coordsRaw.lat = +position.coords.latitude;
       coordsRaw.lng = +position.coords.longitude;
-      initialPosition = Object.assign({}, coordsRaw);//to make an independent clone of the object
+      // initialPosition = Object.assign({}, coordsRaw);//to make an independent clone of the object
       drawMap();
     }
     function handleError(error) {
@@ -29,12 +31,17 @@
       };
       mapContainer.innerText = errors[error.code];
     }
+    let map = L.map(mapContainer);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OpenStreetMap Pavel Ulanenko'}).addTo(map);
+    let target = L.latLng(coordsRaw.lat, coordsRaw.lng);
+    map.setView(target, 19);//zoom 19 is max in Openstreet maps
+    L.marker(target).addTo(map);//place the marker
     function drawMap() {
-      let map = L.map(mapContainer);
-      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OpenStreetMap Pavel Ulanenko'}).addTo(map);
-      let target = L.latLng(coordsRaw.lat, coordsRaw.lng);
-      map.setView(target, 19);//zoom 19 is max in Openstreet maps
-      L.marker(target).addTo(map);//place the marker
+      // let map = L.map(mapContainer);
+      // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: 'OpenStreetMap Pavel Ulanenko'}).addTo(map);
+      // let target = L.latLng(coordsRaw.lat, coordsRaw.lng);
+      // map.setView(target, 19);//zoom 19 is max in Openstreet maps
+      // L.marker(target).addTo(map);//place the marker
       function move() {
         // setTimeout(move, 2000);
         // coordsRaw.lat += .0001;
@@ -45,6 +52,7 @@
         console.log(computeDistance(initialPosition, coordsRaw));
         let distance = `You walked: ${computeDistance(initialPosition, coordsRaw)} km`;
         result.innerHTML = distance;
+        initialPosition = coordsRaw;
       }
       move();
     }
