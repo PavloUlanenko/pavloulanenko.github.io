@@ -1,0 +1,36 @@
+let cars = [{
+		"make": "Land Rover",
+		"model": "Range Rover",
+		"year": 2015,
+		"price": 20000.00,
+		"src": "https://picsum.photos/id/237/200/300"
+	},
+	{
+		"make": "Acura",
+		"model": "MDX",
+		"year": 2018,
+		"price": 18000.00,
+		"src": "https://picsum.photos/id/337/200/300"
+	},
+	{
+		"make": "BMW",
+		"model": "X5",
+		"year": 2016,
+		"price": 35000.00,
+		"src": "https://picsum.photos/id/437/200/300"
+	},
+	{
+		"make": "Chevy",
+		"model": "Silverado",
+		"year": 2009,
+		"price": 7000.00,
+		"src": "https://picsum.photos/id/537/200/300"
+	},
+	{
+		"make": "Kia",
+		"model": "Sportage",
+		"year": 2016,
+		"price": 16000.00,
+		"src": "https://picsum.photos/id/637/200/300"
+	}
+];
