@@ -1,7 +1,5 @@
 'use strict';
 
-// import CardAdditions from './cardAdditionals';
-
 let link = 'https://spreadsheets.google.com/feeds/list/1n5633PymXXc-qW_UWMMFxaJYpR-r5PoXrGMaOn7VfF0/od6/public/values?alt=json';
 let wrap = document.querySelector('.wrapper');
 
