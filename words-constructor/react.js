@@ -273,7 +273,7 @@ function ProgressPanel(props) {
 
 function CardAdditions(props) {
 	let domain = 'https://www.carid.com';
-	let defaultImg = 'img/no-image.png';
+	let defaultImg = 'https://pavloulanenko.github.io/words-conctructor/img/no-image.png';
 	return (
 		<div className='additions'>
 			<div className='image-container'>
