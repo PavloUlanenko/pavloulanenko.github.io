@@ -126,6 +126,7 @@
 	.image-container {
 		width: 185px;
 		height: 120px;
+		overflow: hidden;
 		> img {
 			max-width: 100%;
 			width: 100%;

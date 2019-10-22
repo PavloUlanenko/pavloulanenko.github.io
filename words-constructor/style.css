@@ -199,6 +199,7 @@ a:hover {
 .card-controls .image-container {
   width: 185px;
   height: 120px;
+  overflow: hidden;
 }
 .card-controls .image-container > img {
   max-width: 100%;
@@ -339,4 +340,5 @@ a:hover {
     width: 90%;
   }
 }
+
 /*# sourceMappingURL=style.css.map */
