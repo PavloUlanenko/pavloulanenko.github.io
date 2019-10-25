@@ -162,7 +162,7 @@ class App extends React.Component {
 		let blankLetters = document.querySelectorAll('.blank-letter');
 		let currentWord = this.state.data[this.state.count].word;
 		let letter = currentWord[this.state.increment].toLowerCase();
-		if(e.target.value !== letter) {
+		if(e.target.value.toLowerCase() !== letter) {
 			e.target.value = '';
 			e.target.classList.add('-wrong');
 			this.setState(prevState => {
