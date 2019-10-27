@@ -1,0 +1,86 @@
+
+//Possible values for the responsive mixin: 'Mobile S', 'Mobile M', 'Mobile L', 'Tablet', 'Laptop', 'Desktop';
+//Just 'borrowed 'em from Google Dev Tools Responsive panel
+@mixin respond($type) {
+	@if $type == 'Mobile S' {
+		.card-container {
+			width: 100%;
+		}
+	}
+	@if $type == 'Mobile M' {
+		.card-container {
+			width: 95%;
+		}
+		.progress-panel > form {
+			text-align: center;
+			> label {
+				margin-right: 0;
+			}
+		}
+		.card-controls {
+			padding: 10px;
+		}
+	}
+	@if $type == 'Mobile L' {
+		.correct-words {
+			margin-top: 10px;
+		}
+		.additions {
+			> .controls {
+				margin: 0;
+				button {
+					width: 125px;
+				}
+			}
+		}
+	}
+	@if $type == 'Tablet' {
+		html {
+			font-size: 14px;
+		}
+		.card-container {
+			width: 90%;
+		}
+		.progress-panel {
+			margin-bottom: 10px;
+		}
+		.puzzle-set {
+			.blank-letter {
+				margin: 5px;
+			}
+			.letters-set > li {
+				margin: 3px;
+			}
+		}
+		.card-controls > .additions {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			> * {
+				margin-bottom: 10px;
+			}
+			> .image-container {
+				min-width: 30%;
+			}
+			> .word-context {
+				width: 100%;
+				min-width: 100%;
+			}
+			> .voice-over {
+				margin-bottom: 5px;
+				> i {
+					top: 50%;
+					left: 105%;
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+	@if $type == 'Laptop' {
+		.card-container {
+			width: 90%;
+		}
+	}
+	@else {}
+}
+

@@ -3,7 +3,6 @@
 	--font-pale: #9a9a9a;
 	--font-bold: #0d0e10;
 	--main-bg: #f3f3f3;
-	--old-paper-bg: #efdfbb;
 	--letters-bg: #59baf1;
 	--grey-bg: #f6f6f6;
 	--footer-bg: #37383c;
@@ -61,15 +60,6 @@ a {
 	&:hover {
 		text-decoration: underline;
 	}
-}
-.modal {
-	width:100%; 
-	height: 100%;
-	position: fixed;
-	top: 0;
-	left: 0;
-	background-color: rgba(0,0,0,.6);
-	z-index: 100;
 }
 .clearfix::after {
 	content: '';

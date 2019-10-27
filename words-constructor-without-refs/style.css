@@ -3,7 +3,6 @@
   --font-pale: #9a9a9a;
   --font-bold: #0d0e10;
   --main-bg: #f3f3f3;
-  --old-paper-bg: #efdfbb;
   --letters-bg: #59baf1;
   --grey-bg: #f6f6f6;
   --footer-bg: #37383c;
@@ -74,16 +73,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.modal {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 100;
-}
-
 .clearfix::after {
   content: "";
   display: block;
@@ -111,19 +100,6 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.modal-container > .closeModal, .card-controls .controls > button {
-  color: #fff;
-  text-align: center;
-  width: 125px;
-  height: 50px;
-  line-height: 50px;
-  text-transform: uppercase;
-  outline: none;
-}
-.modal-container > .closeModal:active, .card-controls .controls > button:active {
-  border-box: 0 0 8px 3px #fff;
 }
 
 .card-container {
@@ -233,6 +209,18 @@ a:hover {
   width: 100%;
   margin: 10px;
 }
+.card-controls .controls > button {
+  color: #fff;
+  text-align: center;
+  width: 125px;
+  height: 50px;
+  line-height: 50px;
+  text-transform: uppercase;
+  outline: none;
+}
+.card-controls .controls > button:active {
+  border-box: 0 0 8px 3px #fff;
+}
 .card-controls .skip-word {
   background: #e4272c;
   border-radius: 30px 0 0 30px;
@@ -266,35 +254,8 @@ a:hover {
   width: 200%;
 }
 
-.roster {
-  padding: 20px;
-  background: var(--old-paper-bg);
-  list-style-type: square;
-  font: var(--font-h2-h3);
-  font-weight: 400;
-  font-style: italic;
-}
 .roster > li.-done {
   text-decoration: line-through;
-}
-
-.modal-container {
-  background: #fff;
-  text-align: center;
-  padding: 15px;
-  width: 90%;
-  max-width: 640px;
-  font: var(--font-h2-h3);
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.modal-container > .closeModal {
-  display: block;
-  margin: 20px auto;
-  border-radius: 30px;
-  background-color: var(--main-color);
-  cursor: pointer;
 }
 
 @media only screen and (max-width: 320px) {

@@ -6,7 +6,7 @@ let wrap = document.querySelector('.wrapper');
 class App extends React.Component {
 	constructor(props) {
 		super(props);
-		//I decided to bind the methods intead of using arrow methods
+		//I decided to bind the methods intead of using arrow methods because, once transpiled, Babel moves this just outside constructor
 		this.getJSON = this.getJSON.bind(this);
 		this.processJSON = this.processJSON.bind(this);
 		this.extractWords = this.extractWords.bind(this);
@@ -17,19 +17,18 @@ class App extends React.Component {
 		this.hideGuessedLetters = this.hideGuessedLetters.bind(this);
 		this.handleControlButtons = this.handleControlButtons.bind(this);
 		this.clearLetters = this.clearLetters.bind(this);
-		this.closeModal = this.closeModal.bind(this);
-		this.checkKeyboardLayout = this.checkKeyboardLayout.bind(this);
 		this.getJSON(link);
 		this.shaken = false;
-		this.refFocus = React.createRef();
+		this.ref = React.createRef();//new
 		this.state = {
 			count: 0,
 			correctWords: 0,
 			increment: 0,
 			try: 3,
+			currentWord: '',
 			value: '',
 			data: null,
-			modalIsOn: false
+			autofocused: 0
 		};
 	}
 	
@@ -64,7 +63,7 @@ class App extends React.Component {
 												autoFocus={index === 0 ? true : false}
 												defaultValue={this.state.value ? this.state.value.toUpperCase().split('')[index] : ''}//only defaultValue or else the element will be uncontrolled
 												onChange={this.checkAnswer}
-												ref={index === this.state.increment ? this.refFocus : null}
+												// onLoad={index === 0 ? this.autoFocus : undefined} // react reccomends using 'undefined' instead of returning 'false'
 												data-value={currentWord.word[i-1]} //This one can be rendered if necessary, in order to avoid cheating while passing the puzzle
 											/>
 										);
@@ -94,39 +93,30 @@ class App extends React.Component {
 						/>
 					</div>
 				</div>
-				<ol className='roster'>
+				<ul className='roster'>
 					{this.state.data.map((elem, index) => <ListItem props={elem} key={index} />)}
-				</ol>
-				{
-					this.state.modalIsOn
-					? (<div className='modal'>
-							<form className='modal-container' onSubmit={this.closeModal}>
-								<span>Switch your keyboard to English!</span>
-								<input className='closeModal' type='submit' value='OK' />
-							</form>
-						</div>)
-					: null
-				}
+				</ul>
 			</>
 		);
 	}
 	
 	componentDidMount() {
-		this.autoFocus();
+		
 	}
 	
 	componentWillUnmount() {
-		//If I had any timers I'd cleared then here
+		
 	}
 	
 	
 	componentDidUpdate() {
-		this.autoFocus();
+		let toBeFocused = document.querySelector('.blank-letter');
+		this.autoFocus(toBeFocused);//It's necessary. Even though autofocus is applied when rendered it works only if the page is reloaded. So autofocus won't work on 2nd, 3rd word and so on
 	}
 	
 	shouldComponentUpdate(nextProps, nextState) {
-		let [count, value, modal] = [this.state.count, this.state.value, this.state.modalIsOn];
-		return count === 0 || count !== nextState.count || value !== nextState.value || modal !== nextState.modalIsOn ? true : false;
+		let [count, value] = [this.state.count, this.state.value];
+		return count === 0 || count !== nextState.count || value !== nextState.value ? true : false;
 	}
 	
 	async extractWords() {
@@ -142,7 +132,7 @@ class App extends React.Component {
 			if(xhr.status === 200) this.setState({data: this.processJSON(JSON.parse(xhr.responseText))});
 		};
 		xhr.onerror = () => {
-			console.log('A new error occured in xhr');
+			console.log('A new error occured');
 		}
 		xhr.send();
 	}
@@ -161,34 +151,15 @@ class App extends React.Component {
 	}
 	
 	shakeArray(arr) {
-		//This approach is not 100% according to the theory of relativety, but is the best way for my purpose to shake an array
+		//Yes, I know that is not 100% according to the theory of relativety, but for my purpose to shake an array is great  
 		return arr.sort(() => Math.random() - .5);
 	}
 	
-	autoFocus() {
-		const ref = this.refFocus.current;
-		if(!ref) return;
-		ref.focus();
-	}
-
-	closeModal(e) {
-		e.preventDefault();
-		this.setState(prevState => { 
-			return {modalIsOn: !prevState.modalIsOn};
-		});
-	}
-
-	checkKeyboardLayout(letter) {
-		const engChars = 'abcdefghijklmnopqrstuvwxyz -';
-		if(!(engChars.includes(letter))) {
-			this.setState(prevState => {
-				return {modalIsOn: !prevState.modalIsOn};
-			});
-		}
+	autoFocus(elem) {
+		elem.focus();
 	}
 	
 	checkAnswer(e) {
-		this.checkKeyboardLayout(e.target.value.toLowerCase());
 		let blankLetters = document.querySelectorAll('.blank-letter');
 		let currentWord = this.state.data[this.state.count].word;
 		let letter = currentWord[this.state.increment].toLowerCase();
@@ -214,7 +185,7 @@ class App extends React.Component {
 		e.target.setAttribute('disabled', true);
 		if(e.target.nextElementSibling) {
 			e.target.nextElementSibling.removeAttribute('disabled');
-			this.autoFocus();
+			e.target.nextElementSibling.focus();
 		}
 		else {
 			this.voiceOver();
@@ -250,6 +221,7 @@ class App extends React.Component {
 		speech.rate = .3;
 		speech.text = this.state.data[this.state.count].word;
 		speak.speak(speech);
+		console.log(speech);
 	}
 	
 	handleControlButtons(e) {
