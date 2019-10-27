@@ -1,0 +1,13 @@
+1. Compile <select> dropdowns via string with states & countries => array
+2. Review how to lessen amount of HTML
+3. CODE THE VALIDATION (maybe should use regexp and pattern attribute)
+4. Find out how to use shadow DOM to customize e.g. <input type="date"> if it is necessary to implement it
+5. Crossbrowser imcompatibilities (IE10++, Edge on Chromium engine???)
+6. Check selecting onfocus and make it crossbrowser
+7. Turn off autocomplete (because of vulnarabilities when a block is not visible, though is autocompleted and sent to a server)
+8. Find out how to deal with exponential in <input type="number">
+9. Other small improvements (maybe not small) => QA
+10. Almost forgot - add a sepatate file "print.css" and optimize the page for printing
+11. Ponder if it's worth it to implement separate entities for "checkbox", "input text"
+12. Fonts "ttf" to "woff" conversion - size
+13. Tabindex

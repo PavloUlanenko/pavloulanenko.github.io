@@ -1,0 +1,402 @@
+/* Styles are mobile-first*/
+@import 'general-style.css';
+@import 'media-style.css';
+@font-face {
+	font-family: "Roboto", sans-serif;
+	src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+header {
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+}
+
+main {
+	background: var(--main-bg);
+}
+
+footer {
+	background: var(--footer-bg);
+}
+
+/*HEADER*/
+header > .wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+}
+.icon-container {
+	margin-left: 12px;
+	/* for it to break the parent (create looming over effect) */
+	background-color: var(--main-color);
+	height: 53px;
+}
+.icon-container > img {
+	padding: 10px;
+	width: 60px;
+}
+.sub-icon {
+	min-width: 150px;
+	height: 100%;
+	padding: 0 30px;
+	box-sizing: content-box;
+	background: #fff url(img/carid-icon.svg) no-repeat center / contain;
+	background-origin: content-box;
+	display: none;
+}
+.mobile-sub-icon {
+	font: 600 1rem "Roboto","Arial","Helvetica",sans-serif;
+	color: var(--font-bold);
+	text-transform: uppercase;
+}
+.cart {
+	margin-right: 12px;
+	width: 50px;
+	height: 50px;
+	background: url(img/cart.svg) no-repeat center / 80%;
+	position: relative;
+}
+.cart-qty {
+	position: absolute;
+	color: #fff;
+	background: #ce4e45;
+	width: 15px;
+	height: 15px;
+	text-align: center;
+	border-radius: 2px;
+	right: 3px;
+	top: 7px;
+	font-size: .7rem;
+	line-height: 15px;
+}
+/*HEADER END*/
+
+/*MAIN*/
+.headers-group {
+	margin: 0 12px;
+	background: transparent;
+}
+.steps {
+	display: block;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+}
+.steps > li {
+	position: relative;
+	display: inline-block;
+	padding-left: 38px;
+	margin-right: 5px;
+	text-align: justify;
+	font-size: .8rem;
+}
+.steps > li::before {
+	content: "";
+	width: 30px;
+	height: 30px;
+	background-color: #d9dadc;
+	background-repeat: no-repeat;
+	background-size: 22px;
+	background-position: center;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.steps > li:not(:last-child)::after {
+	content: ">";
+	position: absolute;
+	top: 50%;
+	right: -15px;
+	transform: translateY(-50%);
+	margin: 0 3px;
+	font-weight: 700;
+}
+.steps > li.-active {
+	color: var(--font-bold);
+}
+.steps > li.-active::before {
+	background-color: var(--font-bold);
+}
+.customer-info::before {
+	background-image: url(img/account.svg);
+}
+.payment::before {
+	background-image: url(img/payment.svg);
+}
+.receipt::before {
+	background-image: url(img/checked.svg);
+}
+section.main,
+.cart-summary {
+	background: #fff;
+	margin: 0 12px 12px;
+	padding: 24px 16px;
+}
+legend,
+.cart-summary > div {
+	margin-bottom: 15px;
+}
+legend > h3,
+.cart-summary h3 {
+	color: #0d0e10;
+    font: var(--font-h2-h3);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+	margin-bottom: 3px;
+}
+.subhead {
+	color: #8a8a8a;
+	font-size: .9rem;
+	text-transform: capitalize;
+}
+.account-info {
+	font-size: .75rem;
+} 
+h2 {
+	text-transform: uppercase;
+	font:  var(--font-h2-h3);
+	letter-spacing: -0.5px;
+	float: left;
+	margin: 0 15px 15px 0;
+}
+.account-info,
+.account-info+h2 {
+	display: inline-block;
+	vertical-align: middle;
+}
+.shipping-address,
+.billing-address {
+	padding-bottom: 30px;
+}
+tr {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 10px 0;
+}
+tr > th {
+	text-align: left;
+	width: 100%;
+	display: block;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+	font-family: "Arial", "Helvetica", sans-serif;
+	font-size: .9rem;
+}
+td {
+	width: 100%;
+	position: relative;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid #c5ccd1;
+	padding: 10px 20px;
+}
+td:focus-within:not(.checkbox) > label {
+	opacity: 0;
+}
+td > label {
+	width: 100%;
+	height: 100%;
+	color: #aaa;
+	transition: opacity .3s ease;
+}
+td > input {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 10px 20px;
+	background: transparent;
+	border: none;
+}
+.business-address-confirm {
+	margin: 10px 0;
+}
+.checkbox {
+	display: flex;
+	border: none;
+	padding: 0;
+	justify-content: flex-start;
+}
+
+.checkbox > input {
+	position: static;
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+	border: none;
+	opacity: 0;
+}
+.checkbox > input + i {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	pointer-events: none;
+}
+.checkbox > input:focus + i {
+	border-color: orange;
+}
+.checkbox > input:checked + i {
+	background: url(img/checkbox-active.svg) no-repeat center / contain;
+	border: none;
+}
+.checkbox > input[type="radio"] + i {
+	border-radius: 50%;
+}
+.checkbox > input[type="radio"]:checked + i {
+	background: radial-gradient(#fff 30%, orange 30%);
+} 
+.select:focus-within > div::after {
+	content: "\25B4";
+}
+/* Positioning #country absolutely because it is impossible to attach pseudo ::before to <select>  */
+.select > div {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+/* Spent much time debugging why U+2303 and U+2303 can't be vertically aligned. The reason is they are nor centered intially. The conclusion - using either other utf-8 char or svg instead */
+.select > div::after {
+	content: "\25BE";
+	position: absolute;
+	color: #000;
+	font-size: 1.2rem;
+	right: 10px;
+	top: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 2;
+}
+select {
+	border: none;
+	width: 100%;
+	height: 100%;
+	padding-left: 20px;
+}
+.phone > label,
+.email > label {
+	font-size: .8rem;
+	position: absolute;
+	left: 0;
+	top: 120%;
+	opacity: 1 !important;
+}
+.phone,
+.email {
+	padding: 18px 20px;
+	margin-bottom: 5px;
+}
+.delivery-address-selector td {
+	margin-bottom: 7px;
+}
+.submit > button {
+	padding: 16px 20px;
+	width: 100%;
+	border-radius: 30px;
+	background: var(--main-color);
+	outline: none;
+	border: none;
+	text-transform: uppercase;
+	color: #fff;
+	font: var(--font-h2-h3);
+	font-size: 1rem;
+}
+.submit > button:focus {
+	border: 1px solid orange;
+}
+/*MAIN END*/
+
+/*ASIDE*/
+aside {
+	padding-bottom: 20px;
+	position: relative;
+	width: 27%;
+	min-width: 280px;
+	background: transparent;
+}
+aside > .container {
+	position: sticky;
+	top: 30px;
+}
+.cart-summary  td {
+	border: none;
+	padding: 0;
+}
+.cart-summary > table > tbody > tr {
+	display: block;
+	border-top: 1px solid #f1f1f1;
+	margin: 0;
+	padding: 15px 0;
+}
+.side-information {
+	text-align: center;
+	margin-top: 15px;
+	color: #8a8a8a;
+	font-size: .87rem;
+}
+.side-information > div {
+	margin-top: 15px;
+}
+.side-information a {
+	color: #8a8a8a;
+}
+.car-safety {
+	padding-left: 23px;
+	display: inline-block;
+	margin: auto;
+	background: url(img/lock.svg) no-repeat 0% 0% / 15px 15px;
+}
+a.live-chat {
+	color: #4062b9;
+}
+/*ASIDE END*/
+
+/*FOOTER*/
+footer,
+footer a {
+	color: #9c9c9c;
+	font-family: "Arial","Helvetica",sans-serif;
+	font-size: .78rem;
+}
+footer > .wrap {
+	text-align: center;
+	padding: 30px 12px 50px;
+}
+.copyright {
+	margin-bottom: 10px;
+}
+.links > li {
+	display: inline-block;
+	padding: 5px;
+}
+/*FOOTER END*/
+
+
+.wrap.clearfix {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.headers-group {
+	width: 100%;
+}
+section.main {
+	width: 70%;
+}
+td.-invalid {
+	border: 1px solid red;
+}

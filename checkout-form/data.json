@@ -1,0 +1,190 @@
+let arr = [
+	{id: (function() {
+		let arr = [];
+		for(let i=0; i<100; i++) {
+			arr.push(i);
+		}
+		return arr;
+	})()},
+	{asideContent: [
+			{Subtotal: 100.50},
+			{'Shipping cost': 23.77},
+			{Tax: 44.10},
+			{Total: 180.70}
+		]
+	},
+	[
+		{'Shipping Address': [{subhead: 'Where you would like your items shipped'},
+								{
+									type: 'text',
+									id: 'first-name',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: 35,
+									pattern: '\\D{1,15}', //To avoid React chars encoding
+									placeholder: 'John',
+									label: 'First Name'
+								},
+								{
+									type: 'text',
+									id: 'last-name',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: 35,
+									pattern: '\\D{1,15}',
+									placeholder: 'Doe',
+									label: 'Last Name'
+								},
+								{
+									type: 'checkbox',
+									id: 'business-address-confirm',
+									required: false,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: false,
+									pattern: '',
+									placeholder: '',
+									label: 'This is a business address',
+									className: 'business-address-confirm'
+								},
+								{
+									type: 'text',
+									id: 'address',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: 35,
+									pattern: '',
+									placeholder: 'Str, Hgw, Lane, Bwd, etc.',
+									label: 'Address'
+								},
+								{
+									type: 'text',
+									id: 'additional-address',
+									required: false,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: 35,
+									pattern: '',
+									placeholder: 'Apt, Suite, Floor, etc. (opt.)',
+									label: 'Address 2'
+								},
+								{
+									type: 'select',
+									id: 'country',
+									required: true,
+									checked: false,
+									selected: 'USA',
+									multiple: false,
+									maxLength: '',
+									pattern: '',
+									placeholder: '',
+									label: 'Country',
+									options: ['USA', 'Great Britain', 'Germany', 'Italy', 'Spain', 'China', 'India', 'France'],
+									className: 'select'
+								},
+								{
+									type: 'text',
+									id: 'zip-code',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: 9,
+									pattern: '\\w{4,10}',
+									placeholder: '80455',
+									label: 'Zip Code'
+								},
+								{
+									type: 'select',
+									id: 'state',
+									required: true,
+									checked: false,
+									selected: 'New Jersy',
+									multiple: false,
+									maxLength: '',
+									pattern: '',
+									placeholder: '',
+									label: 'State',
+									options: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"],
+									className: 'select'
+								},
+								{
+									type: 'text',
+									id: 'city',
+									required: true,
+									checked: false,
+									selected: true,
+									multiple: false,
+									maxLength: 35,
+									pattern: '\\w{1,25}',
+									placeholder: 'Pine Ridge',
+									label: 'City'
+								}
+							]
+		},
+		{'Billing Address': [{subhead: 'Where your credit card statement is mailed'},
+								{
+									type: 'radio',
+									id: 'same-billing',
+									required: false,
+									checked: true,
+									selected: false,
+									multiple: false,
+									maxLength: '',
+									pattern: '',
+									placeholder: '',
+									label: 'Billing address is the same as shipping',
+									className: 'delivery-address-selector'
+								},
+								{
+									type: 'radio',
+									id: 'different-billing',
+									required: false,
+									checked: false,
+									selected: false,
+									multiple: false,
+									maxLength: '',
+									pattern: '',
+									placeholder: '',
+									label: 'Use a different billing address',
+									className: 'delivery-address-selector'
+								},
+								{
+									type: 'tel',
+									id: 'phone',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: true,
+									maxLength: 35,
+									className: 'phone',
+									pattern: '(\\+\\d)?\\d{3,4}(-|\\s)?\\d{4}(-|\\s)?\\d{3}(-|\\s)',
+									placeholder: 'So we can contact you if we have questions about your order',
+									label: 'Phone'
+								},
+								{
+									type: 'email',
+									id: 'email',
+									required: true,
+									checked: false,
+									selected: false,
+									multiple: true,
+									maxLength: 35,
+									className: 'email',
+									pattern: '\\S{1,25}@\\D*',
+									placeholder: 'To receive your order confirmation and tracking number(s)',
+									label: 'Email'
+								},
+							]
+		}
+	],
+	{footerLinks: ['Privacy policy', 'Return policy', 'Secure Shopping']}
+];

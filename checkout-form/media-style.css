@@ -1,0 +1,129 @@
+@media only screen and (min-width:741px) and (max-width:1024px) {
+	html {
+		font-size: 18px;
+	}
+	header {
+		overflow: hidden;
+	}
+	.telephone > a,
+	.helpcenter > a	{
+		color: #9a9a9a;
+		margin-right: 20px;
+		padding-right: 20px;
+		border-right: 1px solid #9a9a9a;
+	}
+	.icon-container {
+		flex-grow: 1;
+		display: flex;
+		margin-right: 20px;
+	}
+	.icon-container > .sub-icon {
+		display: inline-block;
+		margin-right: auto;
+		flex-grow: 1;
+		background-size: auto 70%;
+	}
+	.mobile-sub-icon {
+		display: none;
+	}
+	.wrap {
+		display: flex;
+		margin: auto;
+		flex-wrap: wrap;
+	}
+	table td, 
+	table th,
+	.main .submit {
+		max-width: 400px;
+	}
+	table tr > th {
+		text-align: right;
+		padding-right: 20px;
+		width: 20%;
+	}
+	tr {
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		margin-bottom: 30px;
+	}
+	.wrap > .headers-group,
+	.wrap > .main,
+	.wrap > aside {
+		width: 100%;
+	}
+	.submit {
+		max-width: 100%;
+	}
+	small {
+		margin: auto;
+	}
+	.car-help {
+		display: inline-block;
+		margin-left: 20px;
+	}
+}
+
+@media only screen and (min-width:741px) {
+	h1 {
+		flex-grow: 1;
+		display: inline-block;
+		text-transform: uppercase;
+		font-size: 1.5rem;
+	}
+	ol.steps {
+		width: 60%;
+		padding: 0;
+	}
+	ol.steps > li {
+		padding-left: 60px;
+	}
+	ol.steps > li::before {
+		width: 50px;
+		height: 50px;
+	}
+	.steps > li::after {
+		content: none !important;
+	}
+	* [hidden] {
+		display: block;
+	}
+	.headers-group {
+		padding: 45px 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	p.account-info {
+		display: block;
+		text-align: right;
+	}
+}
+
+@media only screen and (min-width:320px) and (max-width:740px) {
+		main > .wrap.clearfix {
+			justify-content: center;
+		}
+		.wrap > .main {
+			width: 100%;
+		}
+		.wrap > aside {
+			width: 100%;
+		}
+}
+
+@media only screen and (min-width:1025px) {
+	html {
+		font-size: 21px;
+	}
+	.wrap {
+		flex-direction: row;
+	}
+	.main {
+		width: 60%;
+		float: left;
+	}
+	td.submit > button {
+		font-size: .8rem;
+	}
+}
