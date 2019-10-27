@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calendar</title>
+  <style>
+	*, *::before, *::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	html, body {
+		width: 100%;
+		height: 100%;
+		font-size: 16px;
+	}
+	.wrapper {
+		width: 70%;
+		margin: auto;
+	}
+	.calendar td, th {
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		text-align: center;
+		line-height: 35px;
+		cursor: pointer;
+		border: 0px solid navy;
+	}
+	.controls > .arrow {
+		display: inline-block;
+		cursor: pointer;
+		width: 35px;
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+		border-radius: 50%;
+		border: 1px solid #000;
+	}
+	.day-selected {
+		background-color: yellow;
+	}
+	thead {
+		text-align: center;
+	}
+	td:hover {
+		border-width: 1px;
+	}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="controls">
+		<span class="arrow -left">&lt;</span>
+		<span class="arrow -right">&gt;</span>
+	</div>
+  </div>
+  <div class="counter"></div>
+</body>
+<script>
+window.addEventListener("load", function() {
+  (function() {
+	let currentDate = new Date;
+	let daySelected = currentDate.getDate();
+  
+    function createCalendar(blockName, year, month) {
+		let table = document.createElement("table");
+		let daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+		let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		let tableRow = `<tr>`;
+		let date = new Date(year, month, 0); //the last day of the last month
+		let dateCopy = new Date(year, month-1); // for receiving the fisrt day of the month
+		let daysInMonth = date.getDate();
+		let firstDayOfMonth = dateCopy.getDay();
+		let lastDayOfMonth = date.getDay();
+		let counter = 1; //to divide table on rows (7 days per row)
+		console.log("first: "+firstDayOfMonth);
+		console.log("last: "+lastDayOfMonth);
+
+		table.classList.add(blockName);
+
+		function addThead() {
+			table.innerHTML = `<caption>${months[date.getMonth()]} <span class='current-date'>${new Date().getDate()}</span> <span class='current-year'>${date.getFullYear()}</span></caption>`;
+			let thead = '<thead><tr>';
+			daysOfWeek.forEach(day => thead += `<th>${day.slice(0,3)}</th>`);
+			thead.innerHTML += `</tr></thead>`;
+			table.innerHTML += thead;
+		}
+		function splitIntoRows() {
+			if(!(counter%7)) {
+				tableRow += `</tr><tr>`;
+			}
+		}
+		
+		if(firstDayOfMonth !== 0) { //if the first day of the month is not Sunday add corresponding qty of blank cells
+			for(let i=1; i<firstDayOfMonth; i++) {
+				tableRow += `<td></td>`;
+				splitIntoRows();
+				counter++;
+			}
+		}
+		for(let i=1; i<=daysInMonth; i++) {
+			tableRow += `<td data-index='${i}'>${i}</td>`;
+			splitIntoRows();
+			counter++;
+		}
+		if(lastDayOfMonth !== 0) { //if the last day of the month is not Sunday add corresponding qty of blank cells
+			for(let i=lastDayOfMonth; i<7; i++) {
+				tableRow += `<td></td>`;
+				splitIntoRows();
+				counter++;
+			}
+		}
+		tableRow += `</tr>`;
+		addThead();
+		table.innerHTML += tableRow;
+		if(document.querySelector('.calendar')) document.querySelector('.calendar').remove();
+		document.querySelector('.wrapper').appendChild(table);
+		highlightSelectedDay();
+	}
+	
+	function highlightSelectedDay() {
+		let table = document.querySelector('.calendar');
+		table.querySelector(`td[data-index='${daySelected}']`).classList.add('day-selected');
+		table.addEventListener('click', function(e) {
+			if(!e.target.hasAttribute('data-index')) return; //to prevent highlighting irrelevant cells (without date)
+			table.querySelector('.day-selected').classList.remove('day-selected');
+			e.target.classList.add('day-selected');
+			daySelected  = e.target.dataset.index;
+			table.querySelector('.current-date').innerHTML = daySelected;
+		});
+	}
+	
+	createCalendar("calendar", currentDate.getFullYear(), currentDate.getMonth() + 1);
+	let arrows = document.querySelectorAll('.arrow');
+	arrows.forEach(elem => {
+		elem.addEventListener("click", function(e) {
+			if(e.target.matches('.-left')) {
+				currentDate.setMonth(currentDate.getMonth() - 1);
+				createCalendar("calendar", currentDate.getFullYear(), currentDate.getMonth() + 1);
+				return;
+			}
+			currentDate.setMonth(currentDate.getMonth() + 1);
+			createCalendar("calendar", currentDate.getFullYear(), currentDate.getMonth() + 1);
+		});
+	});
+  })();
+});
+let w;
+function worker() {
+	let elem = document.querySelector('.counter');
+	if('Worker' in window) {
+		w = new Worker('worker.js');
+	}
+	w.onmessage = function(e) {
+		elem.innerHTML = e.data;
+		console.log(e);
+	};
+}
+document.body.onclick = function() {
+	if(!!w) return;
+	worker();
+};
+</script>
+</html>
