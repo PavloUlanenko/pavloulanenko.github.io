@@ -1,0 +1,13 @@
+let categories = "Custom Wheels,Headlights,Tires,Exhaust Systems,Running Boards,Suspension Systems,Floor Mats,Brakes & Rotors,Seat Covers,Bed Accessories,Custom Grilles,Tail Lights,Off-Road Bumpers,Body Kits,Air Intake Systems,Chrome Trim,Custom Hoods,LED Lights,Car Covers,Towing & Hitches".split(',');
+let prices = [1000, 499, 760, 599, 300, 1200, 600, 355, 400, 1020, 500, 900, 150, 355, 640, 1600, 400, 455, 200, 125];
+let images = arr = [];
+let ext = '.jpg';
+images = categories.map(elem => 'img/' + elem.toLowerCase().replace(/\s/g, "-") + ext);
+
+for(let i=0; i<categories.length; i++) {
+	arr.push({
+		name: categories[i],
+		src: images[i],
+		price: prices[i]
+	});
+}

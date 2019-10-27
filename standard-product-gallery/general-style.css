@@ -1,0 +1,53 @@
+:root {
+	--main-color: #5faf4b;
+	--font-pale: #9a9a9a;
+	--font-bold: #0d0e10;
+	--main-bg: #f3f3f3;
+	--footer-bg: #212326;
+	--font-h2-h3: 700 1.1rem / 1.2 "Roboto","Arial","Helvetica",sans-serif;
+}
+*, *::before, *::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	font-family: "Roboto","Arial","Helvetica",sans-serif;
+}
+section {
+	width: 100%;
+}
+main {
+	flex-grow: 1; 
+	/* to make footer always sticked to the bottom no matter eathe there is content in main or no */
+}
+header, main, footer {
+	width: 100%;
+}
+ul, ol, dl {
+	list-style: none;
+}
+img {
+	display: inline-block;
+	max-width: 100%;
+}
+table {
+	width: 100%;
+}
+label {
+	display: inline-block;
+}
+a, button {
+	cursor: pointer;
+}
+a {
+	color: #4062b9;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+a:hover {
+	text-decoration: underline;
+}

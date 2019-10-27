@@ -1,0 +1,88 @@
+/* Styles are mobile-first*/
+@import 'general-style.css';
+@import 'media-style.css';
+@font-face {
+	font-family: "Roboto", sans-serif;
+	src: url("fonts/Roboto/Roboto-Regular.ttf");
+}
+header {
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+	height: 50px;
+}
+
+main {
+	background: var(--main-bg);
+}
+
+footer {
+	background: var(--footer-bg);
+}
+
+header > .wrap {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+}
+.wrapper {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	position: relative;
+	padding: 2.5%;
+	background-color: var(--main-bg);
+}
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+	align-items: stretch;
+	margin: -10px;
+}
+.gallery > li {
+	padding: 10px;
+	width: 20%;
+	overflow: hidden;
+}
+.gallery  a.-active {
+	border: 3px solid coral;
+}
+.gallery > li > a {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font: .8rem "Roboto","Arial","Helvetica",sans-serif;
+	color: #111;
+	background-color: #fff;
+	text-align: center;
+	border: 1px solid transparent;
+	height: 100%;
+} 
+.gallery > li > a > * {
+	margin-bottom: 10px;
+}
+.img-container {
+	position: relative;
+	width: 100%;
+	padding-bottom: 66.6666%;
+	
+}
+.img-container > img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 80%;
+	transform: translate(-50%, -50%);
+	opacity: 1;
+	transition: opacity .7s ease;
+}
+.img-container > img.lazy {
+	opacity: 0;
+}
+.short-decription {
+	font-weight: 700;
+	font-size: .9rem;
+}
