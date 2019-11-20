@@ -235,7 +235,7 @@ body {
                 let name = document.getElementById('name').value;
                 let password = document.getElementById('pass').value;
                 // let url = 'https://my-blogs-63704.firebaseio.com/posts.json';
-                let url = 'https://pass-b5281.firebaseio.com/users/posts/passwords.json';
+                let url = 'https://pass-b5281.firebaseio.com/users/posts.json';
                 let xhr = new XMLHttpRequest();
                 xhr.open('PUT', url);
                 xhr.send(JSON.stringify({name: name, password: password}));
