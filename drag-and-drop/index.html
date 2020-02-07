@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    .wrapper {
+      user-select: none;
+    }
+    h1 {
+      text-align: center;
+      text-transform: capitalize;
+      font-family: cursive;
+    }
+    .drag-and-drop {
+      display: flex;
+      flex-flow: row wrap;
+      font-family: sans-serif;
+    }
+    .draggable-container {
+      width: 20%;
+      background: aliceblue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .droppable-container {
+      width: 80%;
+    }
+    .droppable-container > p {
+      text-indent: 20px;
+    }
+    .element {
+      font-family: serif;
+      padding: 10px 20px;
+      background: #903779;
+      color: #fff;
+      display: inline-block;
+      margin: 5px;
+      cursor: move;
+    }
+    p {
+      display: inline-block;
+      width: 100%;
+      background: #f9f9f9;
+      padding: 5px;
+    }
+    .box {
+      margin: 0 5px;
+      padding: 3px;
+      border: 1px solid red;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .box.droppable {
+      display: inline-block;
+      min-width: 150px;
+      min-height: 2rem;
+      background: #ccc;
+      text-indent: 0px;
+    }
+    .box.droppable:empty {
+      background-color: #ccc;
+    }
+    .droppable.-active {
+      background: orange;
+    }
+    .droppable.-wrong {
+      background-color: #FF005A;
+    }
+    .droppable.-correct {
+      background-color: #00FF00;
+    }
+    .droppable.-correct > span {
+      cursor: not-allowed;
+    }
+    @media only screen and (max-width: 624px) {
+      h1 {
+        font-size: 1.4rem;
+      }
+      .drag-and-drop {
+        flex-direction: column;
+      }
+      .draggable-container {
+        width: 100%;
+        flex-flow: row wrap;
+        justify-content: center;
+      }
+      .droppable-container {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>3 ways to measure your adaptability — and how to improve it</h1>
+    <div class="drag-and-drop">
+      <div class="draggable-container">
+        <span class="element" data-id='Adaptability' draggable="true">Adaptability</span>
+        <span class="element" data-id='filed for' draggable="true">Filed for</span>
+        <span class="element" data-id='blue-chip' draggable="true">Blue-chip</span>
+        <span class="element" data-id='Stimulation' draggable="true">Stimulation</span>
+        <span class="element" data-id='Awesome'  draggable="true">Awesome</span>
+        <span class="element" data-id='finagled' draggable="true">Finagled</span>
+        <span class="element" data-id='Dedicate' draggable="true">Dedicate</span>
+        <span class="element" data-id='rapport' draggable="true">Rapport</span>
+        <span class="element" data-id='Infuse' draggable="true">Infuse</span>
+        <span class="element" data-id='box droppable'  draggable="true">Box droppable</span>
+        <span class="element" data-id='Steer'  draggable="true">Steer</span>
+        <span class="element" data-id='determination' draggable="true">Determination</span>
+        <span class="element" data-id='conjure'  draggable="true">Conjure</span>
+      </div>
+      <div class="droppable-container">
+        <p data-value="determination">As a tech investor, my goal was to sort through everyone that I met and make a quick <span class="box droppable"></span> about which ones had the potential to make something really big.</p>
+        <p data-value="blue-chip">Have they worked at a <span class="box droppable"></span> company?</p>
+        <p data-value="rapport">How well will this person build teams and build <span class="box droppable"></span>across customers and clients?</p>
+        <p data-value="conjure"> The strength of that vision, as well as how many distinct scenarios someone can <span class="box droppable"></span>, tells me a lot.</p>
+        <p data-value="finagled">In the year 2000, a man <span class="box droppable"></span> his way into a meeting with John Antioco, the CEO of Blockbuster, and proposed a partnership to manage Blockbuster's fledgling online business.</p>
+        <p data-value="filed for">In 2018, Netflix brought in 15.8 billion dollars, while Blockbuster <span class="box droppable"></span> bankruptcy in 2010.</p>
+      </div>
+    </div>
+  </div>
+  <script>
+let draggableArea = droppableArea = document.querySelector('.drag-and-drop');
+
+let shiftElement = id => {
+  let elem = document.querySelector(`[data-id="${id}"]`);
+  return elem.parentNode.removeChild(elem);
+};
+
+let checkIfCorrect = e => {
+  if(e.target.firstElementChild.dataset.id === e.target.parentNode.dataset.value) {
+    e.target.classList.add('-correct');
+    e.target.firstElementChild.draggable = false;
+  }else {
+    e.target.classList.add('-wrong');
+  }
+};
+
+draggableArea.addEventListener('dragstart', e => {
+  e.dataTransfer.setData('text/plain', e.target.dataset.id);
+  e.dataTransfer.effectAllowed = 'move';
+});
+
+droppableArea.addEventListener('dragover', e => {
+  if(e.dataTransfer.types[0] === 'text/plain') {
+   e.preventDefault();
+    if(e.target.classList.contains('droppable')) {
+      e.toElement.classList.add('-active');
+    }
+  }
+});
+
+droppableArea.addEventListener('dragenter', e => {
+  if(e.dataTransfer.types[0] === 'text/plain') {
+   e.preventDefault(); 
+      if(e.target.classList.contains('droppable')) {
+      e.toElement.classList.add('-active');
+    }
+  }
+});
+
+droppableArea.addEventListener('dragleave', e => {
+  if(e.target.classList.contains('droppable') && !e.target.children.length) {
+   e.target.classList.remove('-active', '-correct', '-wrong'); 
+  }
+});
+
+droppableArea.addEventListener('drop', e => {
+  let condition = e.target.classList.contains('draggable-container') || e.target.classList.contains('box');
+  if(!condition) return;
+  let id = e.dataTransfer.getData('text/plain');
+  e.target.appendChild(shiftElement(id));
+  checkIfCorrect(e);
+});
+  </script>
+</body>
+</html>
