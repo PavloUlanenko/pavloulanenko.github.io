@@ -16,6 +16,7 @@
       text-align: center;
       text-transform: capitalize;
       font-family: cursive;
+      font-size: 1.3rem;
     }
     .drag-and-drop {
       display: flex;
@@ -32,9 +33,9 @@
     .droppable-container {
       width: 80%;
     }
-    .droppable-container > p {
+   /* .droppable-container > p {
       text-indent: 20px;
-    }
+    }*/
     .element {
       font-family: serif;
       padding: 10px 20px;
@@ -74,10 +75,22 @@
       background-color: #FF005A;
     }
     .droppable.-correct {
-      background-color: #00FF00;
+      background-color: #266e18;
     }
     .droppable.-correct > span {
       cursor: not-allowed;
+    }
+    p.-correct::after {
+      content: '';
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+      background: url('tick.png') center/cover;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    p::first-letter {
+      font: bold 1.2rem cursive;
     }
     @media only screen and (max-width: 624px) {
       h1 {
@@ -111,18 +124,17 @@
         <span class="element" data-id='Dedicate' draggable="true">Dedicate</span>
         <span class="element" data-id='rapport' draggable="true">Rapport</span>
         <span class="element" data-id='Infuse' draggable="true">Infuse</span>
-        <span class="element" data-id='box droppable'  draggable="true">Box droppable</span>
         <span class="element" data-id='Steer'  draggable="true">Steer</span>
         <span class="element" data-id='determination' draggable="true">Determination</span>
         <span class="element" data-id='conjure'  draggable="true">Conjure</span>
       </div>
       <div class="droppable-container">
-        <p data-value="determination">As a tech investor, my goal was to sort through everyone that I met and make a quick <span class="box droppable"></span> about which ones had the potential to make something really big.</p>
-        <p data-value="blue-chip">Have they worked at a <span class="box droppable"></span> company?</p>
-        <p data-value="rapport">How well will this person build teams and build <span class="box droppable"></span>across customers and clients?</p>
-        <p data-value="conjure"> The strength of that vision, as well as how many distinct scenarios someone can <span class="box droppable"></span>, tells me a lot.</p>
-        <p data-value="finagled">In the year 2000, a man <span class="box droppable"></span> his way into a meeting with John Antioco, the CEO of Blockbuster, and proposed a partnership to manage Blockbuster's fledgling online business.</p>
-        <p data-value="filed for">In 2018, Netflix brought in 15.8 billion dollars, while Blockbuster <span class="box droppable"></span> bankruptcy in 2010.</p>
+        <p data-value="determination">1. As a tech investor, my goal was to sort through everyone that I met and make a quick <span class="box droppable"></span> about which ones had the potential to make something really big.</p>
+        <p data-value="blue-chip">2. Have they worked at a <span class="box droppable"></span> company?</p>
+        <p data-value="rapport">3. How well will this person build teams and build <span class="box droppable"></span>across customers and clients?</p>
+        <p data-value="conjure">4. The strength of that vision, as well as how many distinct scenarios someone can <span class="box droppable"></span>, tells me a lot.</p>
+        <p data-value="finagled">5. In the year 2000, a man <span class="box droppable"></span> his way into a meeting with John Antioco, the CEO of Blockbuster, and proposed a partnership to manage Blockbuster's fledgling online business.</p>
+        <p data-value="filed for">6. In 2018, Netflix brought in 15.8 billion dollars, while Blockbuster <span class="box droppable"></span> bankruptcy in 2010.</p>
       </div>
     </div>
   </div>
@@ -137,6 +149,7 @@ let shiftElement = id => {
 let checkIfCorrect = e => {
   if(e.target.firstElementChild.dataset.id === e.target.parentNode.dataset.value) {
     e.target.classList.add('-correct');
+    e.target.parentNode.classList.add('-correct');
     e.target.firstElementChild.draggable = false;
   }else {
     e.target.classList.add('-wrong');
