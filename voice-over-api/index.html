@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Voice Over</title>
+</head>
+<body>
+	<div class="wrapper">
+		<form action="" name="voice-over">
+			<h1>SpeechSynthesisUtterance API</h1>
+			<select name="voice" id="">
+				<option value="">Select a Voice</option>
+			</select>
+			<label for="rate">Rate</label>
+			<input type="range" name="rate" min="0" max="3" step=".1" value="1">
+			<label for="pitch">Pitch</label>
+			<input type="range" name="pitch" min="0" max="2" step=".1">
+			<textarea name="text" id="" cols="30" rows="10">Hello, world!</textarea>
+			<button name="stop">Stop</button>
+			<button name="speak">Speak</button>
+		</form>
+	</div>
+	<script>
+
+		let form = document.forms['voice-over'];
+		let voicesSelect = form.voice;
+		let stopButton = form.stop;
+		let speakButton = form.speak;
+		let options = form.querySelectorAll('[type=range], [name=text]');
+		const message = new SpeechSynthesisUtterance();
+		const speak = speechSynthesis;
+		let voices = [];
+
+		let reload = (voiceOver = true) => {
+			speak.cancel();
+			if(voiceOver) {
+				speak.speak(message);
+			}
+		};
+
+		let setOptions = e => {
+			message[e.target.name] = e.target.value;
+			reload();
+		};
+		
+		form.onsubmit = () => false;
+
+		speak.addEventListener('voiceschanged', e => {
+			voices = e.currentTarget.getVoices();
+			voicesSelect.innerHTML = voices
+				.map(voice => `<option value="${voice.name}">${voice.name} (${voice.lang})</option>`)
+				.join('');
+		});
+
+		voicesSelect.addEventListener('change', e => {
+			console.log(e.target.value);
+			message.voice = voices.find(voice => voice.name === e.target.value);
+			reload();
+		});
+
+		options.forEach(el => el.addEventListener('change', setOptions));
+
+		speakButton.addEventListener('click', reload);
+	</script>
+</body>
+</html>
