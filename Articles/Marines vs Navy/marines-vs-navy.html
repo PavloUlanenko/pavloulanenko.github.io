@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+	<title>Marines vs Navy</title>
+	<style>
+		*, *::before, *::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		html, body {
+			width: 100%;
+			height: 100%;
+		}
+	html {
+		font-size: 16px;
+	  background: #eff0ef;
+	  font-family: Roboto, 'sans-serif';
+	}
+	.wrapper {
+		width: 100%;
+		height: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+		min-width: 320px;
+	}
+	img {
+		display: block;
+		width: 80%;
+		max-width: 500px;
+		margin: 10px 20px;
+	}
+	a {
+		color: #09f;
+		font-weight: 700;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+	div, p {
+		margin: 10px 0;
+	}
+	p {
+		line-height: 1.6;
+		text-indent: 20px;
+		letter-spacing: 1px;
+		letter-spacing: .08em;
+	}
+	article {
+		max-width: 950px;
+		padding: 0 20px;
+		margin: auto;
+	}
+	.author-remarks {
+		font: italic 1.1rem monospace;
+		text-align: justify;
+	}
+	.author-remarks::after {
+		content: '(Author)';
+		margin-left: 10px;
+		opacity: .5;
+	}
+	.article-header {
+		position: relative;
+	}
+	.article-header > img {
+		width: 100%;
+		min-width: 100%;
+		margin: 0;
+	}
+	.article-header > .details {
+		color: #fff;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		text-align: center;
+		width: 100%;
+		text-shadow: 0 2px 3px #000;
+	}
+	h1 {
+		text-transform: uppercase;
+		letter-spacing: .2rem;
+	}
+	.article-header > .quote-header {
+		position: absolute;
+		width: 100%;
+		top: 0;
+		left: 0;
+		padding-top: 30px;
+		z-index: 10;
+		background: rgba(239, 240, 239, .8);
+	}
+	.article-controls {
+		padding: 10px 20px;
+		font-style: italic;
+		box-shadow: 0 2px 3px 0 #000;
+	}
+	.article-controls > span {
+		cursor: pointer;
+	}
+	.print::before {
+		content: '';
+		vertical-align: middle;
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		background: url(printer.svg);
+		margin-right: 10px;
+	}
+	ol {
+		list-style: circle;
+	}
+	li {
+		padding: 10px 0;
+		border-bottom: 2px solid #999;
+	}
+	/*QUOTE SETTINGS*/
+	.testimonial-quote blockquote {
+	    font: italic 1.5rem Georgia, serif;
+	    line-height: 1.4;
+	    margin: 0;
+	    position: relative;
+	    text-shadow: 0 1px #fff;
+	}
+	.testimonial-quote blockquote p {
+	    color: #75808a; 
+	    line-height: 1.4;
+	}
+	.testimonial-quote blockquote p:first-child:before {
+	    content: '\201C';
+	    color: #81bedb;
+	    font-size: 7.5rem;
+	    font-weight: 700;
+	    opacity: .3;
+	    position: absolute;
+	    top: -.4em;
+	    left: -.2em;    
+	    text-shadow: none;
+	    z-index: -1;
+	}
+	.testimonial-quote img {
+	    border: 3px solid #9CC1D3;
+	    border-radius: 50%;
+	    display: block;
+	    width: 120px;
+	    height: 120px;
+	    position: absolute;
+	    top: -.2em; 
+	    left: 0;    
+	}
+	.testimonial-quote cite {
+	    color: gray;
+	    display: block;
+	    font-size: .8rem; 
+	} 
+	.testimonial-quote cite span {
+	    color: #5e5e5e;
+	    font-size: 1em;
+	    font-style: normal;
+	    font-weight: 700;
+	    letter-spacing: 1px;
+	    text-transform: uppercase;
+	    text-shadow: 0 1px #fff; 
+	}
+	.testimonial-quote {
+	    position: relative; 
+	}
+	.testimonial-quote .quote-container {
+	    padding-left: 160px; 
+	}
+	.quote-hr {
+		margin: 50px auto 20px; 
+		opacity: .5;
+	}
+	
+	/*LETTER*/
+	.notepaper {
+		font-variant: small-caps;
+  position: relative;
+  margin: auto;
+  padding: 29px 20px 20px 45px;
+  width: 80%;
+  line-height: 30px;
+  color: #6a5f49;
+  text-shadow: 0 1px 1px white;
+  background-color: #f2f6c1;
+  background-image: -webkit-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -webkit-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+  background-image: -moz-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -moz-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+  background-image: -o-radial-gradient(center, cover, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.1) 90%), -o-repeating-linear-gradient(top, transparent 0%, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+  border: 1px solid #c3baaa;
+  border-color: rgba(195, 186, 170, 0.9);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+}
+.notepaper:before, .notepaper:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.notepaper:before {
+  left: 28px;
+  width: 2px;
+  border: solid #efcfad;
+  border-color: rgba(239, 207, 173, 0.9);
+  border-width: 0 1px;
+}
+.notepaper:after {
+  z-index: -1;
+  left: 0;
+  right: 0;
+  background: rgba(242, 246, 193, 0.9);
+  border: 1px solid rgba(170, 157, 134, 0.7);
+  transform: rotate(2deg);
+}
+.quote {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+}
+.curly-quotes:before, .curly-quotes:after {
+  display: inline-block;
+  vertical-align: top;
+  height: 30px;
+  line-height: 48px;
+  font-size: 50px;
+  opacity: .2;
+}
+.curly-quotes:before {
+  content: '\201C';
+  margin-right: 4px;
+  margin-left: -8px;
+}
+.curly-quotes:after {
+  content: '\201D';
+  margin-left: 4px;
+  margin-right: -8px;
+}
+.quote-by {
+  display: block;
+  padding-right: 10px;
+  text-align: right;
+  font-size: 13px;
+  font-style: italic;
+  color: #84775c;
+}
+.lt-ie8 .notepaper {
+  padding: 15px 25px;
+}
+@media only screen and (max-width:768px) {
+	html {
+		font-size: 18px;
+	}
+}
+@media only screen and (max-width:768px) {
+	.article-header > .quote-header {
+		position: static;
+	}
+	.article-header > .details {
+		top: 20px;
+	}
+	img {
+		width: 100%;
+		margin: 10px 3px;
+	}
+}
+@media only screen and (max-width:480px) {
+	article {
+		padding: 0 8px;
+	}
+	.article-header > .details {
+		top: 10px;
+	}
+	.article-header > .quote-header {
+		padding-top: 10px;
+	}
+	blockquote p {
+		font-size: 1.2rem;
+	}
+	.testimonial-quote img {
+		position: static;
+		float: left;
+		shape-outside: circle(50%);
+	}
+	.testimonial-quote .quote-container {
+		padding-left: 0;
+	}
+	.quote-hr {
+		margin: 20px auto;
+	}
+	.notepaper {
+		width: 100%;
+	}
+}
+@media print {
+	.article-controls {
+		display: none;
+	}
+	.article-header > .quote-header {
+		position: static;
+	}
+	.article-header > .details {
+		top: 10px;
+		font-size: 3rem;
+		color:#fff;
+	}
+	font-size: 12pt;
+	.notepaper,
+	.notepaper {
+		border: none;
+		content: none;
+		padding: 0;
+	}
+	* {
+	  background: none !important;
+	  box-shadow: none !important;
+	  text-shadow: none !important;
+	}
+	/*img, svg {
+	  display: none !important;
+	}
+	img.print, svg.print {
+	  display: block;
+	  max-width: 100%;
+	}*/
+}
+</style>
+</head>
+<body>
+	<div class="wrapper">
+		<article>
+	    <div class="article-header">
+	    	<img src="trump-announces-al-baghdadi-death.jpg" alt="trump announces al-baghdadi's death">
+	    	<div class="quote-header">
+	    		<div class="testimonial-quote group">
+		        <img src="curtis-le-mae.png">
+		        <div class="quote-container">
+		            <blockquote>
+		                <p>The Soviets are our adversary. Our enemy is the Navy.”</p>
+		            </blockquote>  
+		            <cite><span>Gen. Curtis LeMay</span><br>
+		                U.S. Air Force
+		            </cite>
+		        </div>
+		        <hr class="quote-hr">  
+	    	</div>
+	    </div>  
+	    	<div class="details">
+				<h1>Squids vs Jarheads</h1>
+				<p class="author">Author: <span>Pavel Ulanenko</span></p>
+				<p class="date">Published: <span>12/03/19</span></p>
+				<p class="type-of-post">Time to read: <span></span></p>
+			</div>
+	    </div>
+	    <div class="article-controls">
+	    	<span class="print">Print</span>
+	    </div>
+	    <div class="article-body">
+	    	<p>No, the post is not about President Trump.</p>
+<p>As I'm working in ecommerce tech support department I receive lots of complaints to deal with.
+Mainly they're typical and boring - discrepancies in price, inventory, wrong fitment or description of an item.
+But sometimes I have unusual ones.</p>
+<p>This one is from ex-marine, who went on your e-store and looked for some military discount to apply and receive a dropped price. But what he saw made him drop his jaw. The problem in few words - "Order precedence". Here's what he sent us:
+	<div class="notepaper">
+	  <figure class="quote">
+	    <blockquote class="curly-quotes">
+	      "I might even consider using it if the Eagle, Globe, & Anchor was placed 2nd in precedence where it belongs. Never mind whether the fork seals are in stock, we have a heinous protocol violation!!!! I'm not getting in formation behind any squids. They can pick up their swabs and follow me."
+	    </blockquote>
+	    <figcaption class="quote-by">— Infuriated Ex Marine</figcaption>
+	  </figure>
+	</div>
+	<p class="author-remarks">Eagle, Globe, - Anchor are the symbols on Marines flag.
+	Fork seal - is a replacement part for a bike or a bicycle. Google it and you'll get what it is.</p>
+	<p>
+	And an explanation from a sales agent who spoke with the marine:
+	"Please change the order of Military emblems according to the screenshot provided above. Reason: One of the forum members, ex marine, noticed that the order of military logos is incorrect and he seems to be offended that our page violates the order of precedence. The correct order is this: U.S. Army, Marines Corps, U.S. Navy and so on. The same order of flags is described in this Wiki page: <a href="https://en.wikipedia.org/wiki/Flags_of_the_United_States_Armed_Forces">Order of Military Flags Wiki</a> More about the use of military seals and logos from the Defense Department (the same order described): <a href="https://dod.defense.gov/Portals/1/Documents/Trademarks/DOD%20Guide%20about%20use%20of%20seals%20logos%20insignia%20medals-16%20Oct%2015F.PDF">Rules from Defense Department</a>. Thank you!"</p>
+	<img src="precedence.jpeg" alt="customer letter">
+</p>
+<p>Different military services in the US serve together, fight together but often they argue who's the most important. They always tend to show off on parades, when marches of different services are played, when flags are flown and even during Memorial Day, commemorating those who died in combat.</p>
+<p>Last week President Trump announced the death of an infamous Islamic State leader Al-Baghdadi as a result of the US spec-ops' successful operation. What interests us is flags and their position. Look closer at the photo above!<br/>
+The order of precedence when displaying military flags together is Army, Marine Corps, Navy, Air Force and Coast Guard. Like on the photo. But when it's war Coast Guard Flag moves up, taking place between Navy and Air Force, because is is considered to be as a part of Navy. But for now it is not under the Department of defence but under the Department of Homeland security. They stop illegal migrants, deter drug-trafficing submarines, save people in the waters. So Coast Guard is closer to the Police and lifeguards in times of peace.</p>
+<p>So, inceptions of all the deparments:</p>
+	<ol class="army-inceptions">
+		<li>Army - June, 14 1775.</li>
+		<li>Navy - October, 13 1775.</li>
+		<li>Marine Corps - November, 10 1775.</li>
+		<li>Coast Guard - August, 4 1790.</li>
+		<li>Air Forces - August, 1 1907.</li>
+	</ol>
+<p>Actually, there is the "Big Four": Army, Marines, Navy and Air Force.<br/>
+Army comes first because it was created first - June, 14 1775.<br/>
+The second to come according to the logic had to be Navy, but after the war for independence had finished the ships were sold and sailors released. The same is true about marines who were disbanded. But infantry never. So, my logic that the order of precedence has something to do with the date when the departments were officially formed doesn't work here. Let's move on and find out more.
+</p>
+<p>By the end of 1890s there had already existed a protocol, according to which, when Marines and Navies paraded together, the Marines' flag had more honorable position at the right.<br/> 
+As it has been already said, all the services want to show who's the most important. But rivalry between navy and marines expecially strong. Marines call navy "Squids", navies marines - "Jarheads". The "Jarheads" nickname appeared first, during WWII, presumably because of their haircut. Split the word "Jarhead" - and you'll get it. "Squids" - closer to Veitnam war and was attributed to sailors who would blow their deployment money on fast Japanese motorcycles and booze. They would drown them selves in rum, then crash their motorcycles like squids (aquatic animal that swims fast but crashes into everything).
+This version stemmed so deep in the US culture that there are multiple memes about Squids and bikes across the Internet even now.
+<img src="navy-squid-meme.png" alt="squid and bike">
+There's a stereotype that a jarhead is brave but not bright and a squid is always tipsy and makes stupid things more easily.
+<img src="jarheads.jpg" alt="stupid jarhead">
+Squids has always be throwing away their money on women and booze, but breaking the furniture and scarying away other visitors. And some pub owners preferred to keep squids out of their pubs. There are even signs remained from the times when squids were not welcomed to walk into some pubs.
+<img src="no-sailors-allowed.webp" alt="no sailors allowed">
+</p>
+<p>From about 1960 to 1975, a sailor who called a marine a "jarhead" or a marine who called a sailor a "squid" were actually using code words for, "I want you to start the fight". Another interesting fact is that crew of amphibious ships that taxied marines to their battle zones stood with marines and against sailors when another bar fight started, even though they were sailors.<br/>
+	<img src="squids.jpg" alt="squids">
+I've been reading forums on Quora and found out that another way to piss off a marine who's confident in his supremacy over sailors is to ask him to turn over his military ID which clearly reads "Department of the United States Navy".
+For now these nicknames are so deeple rooted into culture that are a subject of numerous jokes, funny videos. I go over to military services Wikipedia official pages and spotted "Jarheads" even on there (but not "squids" though).
+<img src="jarheads-wiki.png" alt="jarheads wiki">
+</p>
+<p>But this mutual enmity stops abruptly when there are Airmen in a bar and fight begins. In that case marines and sailors back up each other.</p>
+<p>
+	Oh, we almost forgot.There are infantrymen. They are respected because they are always in a close combat with the enemy and their human losses are the biggest but they are ironically called "Grunts" which means the sound a hog produces.
+	<div class="testimonial-quote group">
+	        <img src="lt-dan-forrest-gump.png">
+	        <div class="quote-container">
+	            <blockquote>
+	                <p>There is one item of GI gear that that can be the difference between a live grunt and a dead grunt. Socks... Try and keep your feet dry”</p>
+	            </blockquote>  
+	            <cite><span>Lt. Dan</span><br>
+	                "Forrest Gump"
+	            </cite>
+	        </div>
+	    </div>    
+	    <hr class="quote-hr">
+	    <p class="author-remarks">GI - a shortened form of "Government Issue" which means "a soldier". You can find more info on this matter on the <a href="https://en.wikipedia.org/wiki/G.I._(military)">G.I. Wiki page</a></p>
+</p>
+<p>Truth to be told different services in different countries don't get along as well.<br/>
+I clearly remember a story told by my proffessor about a huge and violent fight between Luftwaffe and Panzerwaffe which took place in "Drei Ferkels und Sieben Gnomen Bar" in Berlin in may 1944. It was caused by an SS standartenfuhrer, who was never identified by the investigation after (injured Luftwaffe pilots recalled in hospital that it was an Otto or an Otto von). That Otto who had been drinking in the pub along with th pilots, sent to tankies who also had been in the pub, a set of empty plates served in the chess order. That so freaked them out that a battle began. Firehoses were used to stop it and the participants didn't even notice an american air raid of 1000 bombers. Plates... in a particular order... in chess order... and what? What's so insultive?</p>
+<p>Introduced in 1942 "Panzer VI", more well know as "Tiger" was an excellent heavy tank. But, like Ahilless, it had a fatal flaw. It was their chassis. Their road wheels were constructed to distribute the weight of the tank on the ground equally which made driving more seamless and comfortable and prolonged lifecycle of the rubber part of the wheel. But this construction of suspension system was difficult to produce and maintain. E.g., it took all day for the crew to replace only one wheel from inner row. In harsh conditions of russian fall and spring when during the day it was a thaw and mud which accumulated between wheels and at night it froze. In the morning checkup showed that tanks couldn't move because wheels were stuck dead. The only way to fight it was to heat up wheels and with a crowbar clean them. Tank crew for the rest of their lives couldn't forget that nightmare.
+<img src="panther-road-wheels.jpg" alt="panther chassis">
+<img src="tank-repairment.jpg" alt="panther repair">
+<img src="chassis-changes.jpg" alt="chassis changes">
+</p>
+<p>In Soviet Army during WWII there were numerous examples of enmity between different services, especially between infantry, artillery and tank warfare. Artillery was blamed in "friendly fire" that took many lives of soviet soldiers because there were practices of suicidal offensives not after but while preliminary bombardment of enemy's positions.
+Nowadays in post-soviet countries it's noticible that airborne forces (paratroopers) consider themself unlike the others, just remember their motto "Nobody, but us!" and the annual tradition to cool off in fountains.</p>
+	    </div>
+	    </article>
+	</div>
+	<script>
+		// Average reading speed is 200 wpm. Calcuate the total number of the words / 200. Round frations to an extra minute
+		let article = document.querySelector('article');
+		let text = article.innerText;
+		let readingTime = Math.ceil(text.split(' ').length / 200);
+		let postType = document.querySelector('.type-of-post');
+		postType.firstElementChild.textContent = readingTime + 'min '+ (readingTime <= 3 ? 'Short story' : 'Longread');
+		console.dir(Math.ceil(readingTime));
+
+		let print = document.querySelector('.print');
+		print.addEventListener('click', () => {
+			window.print();
+		});
+	</script>
+</body>
+</html>
