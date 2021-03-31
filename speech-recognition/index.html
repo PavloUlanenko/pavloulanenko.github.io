@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="output"></div>
+		<div class="input">
+			<button class="pass">Pass captcha</button>
+			<button class="repeat">Repeat</button>
+		</div>
+	</div>
+	<script>
+		const repeatWordBtn = document.querySelector('.repeat');
+		const output = document.querySelector('.output');
+		const passCaptchaBtn = document.querySelector('.pass');
+		const textToVoiceOver = 'Please press the button and say the word you hear in a calm and clear manner. In three, two, one...';
+		const voiceOver = (text, options = {}) => {
+		  const {
+		    lang = 'en',
+		    rate = .5,
+		  } = options;
+
+		  if (!("speechSynthesis" in window)) return;
+		  const speech = new SpeechSynthesisUtterance();
+		  const speak = window.speechSynthesis;
+		  speech.lang = lang;
+		  speech.rate = rate;
+		  speech.text = text;
+		  speak.speak(speech);
+		};
+
+		const writeText = (text, confidence) => {
+			output.innerHTML += `We are ${(confidence*100).toFixed(2)}% confident that you said: ${text}<br/>`;
+		};
+
+		const recognizeSpeech = () => {
+			const grammar = '#JSGF V1.0; grammar captcha; public <captcha> = lysovolk';
+			const Recognition = webkitSpeechRecognition || SpeechRecognition;
+			const Grammar = webkitSpeechGrammarList || SpeechGrammarList;
+			const recognition = new Recognition();
+			const speechRecognitionList = new Grammar();
+			speechRecognitionList.addFromString(grammar, 1);
+			recognition.grammars = speechRecognitionList;
+
+			recognition.onspeechend = function() {
+			    recognition.stop();
+			}
+			              
+			recognition.onresult = function(e) {
+			    const transcript = e.results[0][0].transcript;
+			    const confidence = e.results[0][0].confidence;
+			    writeText(transcript, confidence);
+			};
+			              
+			recognition.start();
+		};
+
+		passCaptchaBtn.addEventListener('click', () => {
+			voiceOver(textToVoiceOver);
+			voiceOver('leesovolk');
+		});
+		repeatWordBtn.addEventListener('click', recognizeSpeech);
+	</script>
+</body>
+</html>
