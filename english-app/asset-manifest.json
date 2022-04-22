@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d4de9c15.css",
+    "main.js": "/static/js/main.d6d62e92.js",
+    "static/css/727.d1712126.chunk.css": "/static/css/727.d1712126.chunk.css",
+    "static/js/727.3112247e.chunk.js": "/static/js/727.3112247e.chunk.js",
+    "static/css/946.8a6d2803.chunk.css": "/static/css/946.8a6d2803.chunk.css",
+    "static/js/946.1575511e.chunk.js": "/static/js/946.1575511e.chunk.js",
+    "static/css/798.45ec738d.chunk.css": "/static/css/798.45ec738d.chunk.css",
+    "static/js/798.6b7980a2.chunk.js": "/static/js/798.6b7980a2.chunk.js",
+    "static/js/787.9f2e316c.chunk.js": "/static/js/787.9f2e316c.chunk.js",
+    "static/media/Christmas_tree_icon.png": "/static/media/Christmas_tree_icon.826770d223ef9b4a80fc.png",
+    "static/media/wrong.png": "/static/media/wrong.2d9dc9eec725b597029d.png",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "static/media/voice-over.svg": "/static/media/voice-over.62face01f6da7d4f0330.svg",
+    "main.d4de9c15.css.map": "/static/css/main.d4de9c15.css.map",
+    "main.d6d62e92.js.map": "/static/js/main.d6d62e92.js.map",
+    "727.d1712126.chunk.css.map": "/static/css/727.d1712126.chunk.css.map",
+    "727.3112247e.chunk.js.map": "/static/js/727.3112247e.chunk.js.map",
+    "946.8a6d2803.chunk.css.map": "/static/css/946.8a6d2803.chunk.css.map",
+    "946.1575511e.chunk.js.map": "/static/js/946.1575511e.chunk.js.map",
+    "798.45ec738d.chunk.css.map": "/static/css/798.45ec738d.chunk.css.map",
+    "798.6b7980a2.chunk.js.map": "/static/js/798.6b7980a2.chunk.js.map",
+    "787.9f2e316c.chunk.js.map": "/static/js/787.9f2e316c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d4de9c15.css",
+    "static/js/main.d6d62e92.js"
+  ]
+}
