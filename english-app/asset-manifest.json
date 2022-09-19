@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/english-app/static/css/main.9ffb1290.css",
-    "main.js": "/english-app/static/js/main.3731feb0.js",
+    "main.css": "/english-app/static/css/main.bdb125a8.css",
+    "main.js": "/english-app/static/js/main.2adfbb12.js",
     "static/css/587.1d1cdfd6.chunk.css": "/english-app/static/css/587.1d1cdfd6.chunk.css",
     "static/js/587.54674569.chunk.js": "/english-app/static/js/587.54674569.chunk.js",
     "static/css/937.c14b53c7.chunk.css": "/english-app/static/css/937.c14b53c7.chunk.css",
-    "static/js/937.6bee526f.chunk.js": "/english-app/static/js/937.6bee526f.chunk.js",
+    "static/js/937.15e44884.chunk.js": "/english-app/static/js/937.15e44884.chunk.js",
     "static/css/65.20bbf633.chunk.css": "/english-app/static/css/65.20bbf633.chunk.css",
     "static/js/65.d6555bdb.chunk.js": "/english-app/static/js/65.d6555bdb.chunk.js",
     "static/css/798.943c5a97.chunk.css": "/english-app/static/css/798.943c5a97.chunk.css",
@@ -25,12 +25,12 @@
     "index.html": "/english-app/index.html",
     "static/media/voice-over.svg": "/english-app/static/media/voice-over.62face01f6da7d4f0330.svg",
     "static/media/arrow-down-white.svg": "/english-app/static/media/arrow-down-white.696129a9ead3874d7610.svg",
-    "main.9ffb1290.css.map": "/english-app/static/css/main.9ffb1290.css.map",
-    "main.3731feb0.js.map": "/english-app/static/js/main.3731feb0.js.map",
+    "main.bdb125a8.css.map": "/english-app/static/css/main.bdb125a8.css.map",
+    "main.2adfbb12.js.map": "/english-app/static/js/main.2adfbb12.js.map",
     "587.1d1cdfd6.chunk.css.map": "/english-app/static/css/587.1d1cdfd6.chunk.css.map",
     "587.54674569.chunk.js.map": "/english-app/static/js/587.54674569.chunk.js.map",
     "937.c14b53c7.chunk.css.map": "/english-app/static/css/937.c14b53c7.chunk.css.map",
-    "937.6bee526f.chunk.js.map": "/english-app/static/js/937.6bee526f.chunk.js.map",
+    "937.15e44884.chunk.js.map": "/english-app/static/js/937.15e44884.chunk.js.map",
     "65.20bbf633.chunk.css.map": "/english-app/static/css/65.20bbf633.chunk.css.map",
     "65.d6555bdb.chunk.js.map": "/english-app/static/js/65.d6555bdb.chunk.js.map",
     "798.943c5a97.chunk.css.map": "/english-app/static/css/798.943c5a97.chunk.css.map",
@@ -44,7 +44,7 @@
     "787.9f2e316c.chunk.js.map": "/english-app/static/js/787.9f2e316c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9ffb1290.css",
-    "static/js/main.3731feb0.js"
+    "static/css/main.bdb125a8.css",
+    "static/js/main.2adfbb12.js"
   ]
 }
