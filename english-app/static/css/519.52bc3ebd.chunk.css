@@ -1,0 +1,2 @@
+.Card{background:#fff;box-shadow:0 2px 3px #eee;cursor:pointer;margin:5px;min-height:50px;min-width:150px;padding:10px 20px;text-align:center}.Card.-selected{border:2px solid blue}.Card.-match{-webkit-animation:hideMatchedCards 1.7s ease forwards;animation:hideMatchedCards 1.7s ease forwards;position:relative}@-webkit-keyframes hideMatchedCards{0%{left:0}to{left:-200%}}@keyframes hideMatchedCards{0%{left:0}to{left:-200%}}.OppositeWords>ul{display:flex;flex-flow:row wrap;justify-content:center;list-style:none}
+/*# sourceMappingURL=519.52bc3ebd.chunk.css.map*/
