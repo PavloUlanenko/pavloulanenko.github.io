@@ -1,0 +1,70 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.glowing-gradient-section {
+    height: 100dvh;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glowing-gradient {
+    position: relative;
+    width: 400px;
+    height: 300px;
+}
+
+.glowing-gradient::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: repeating-conic-gradient(from var(--angle), #0f0, #ff0, #0ff, #f0f, #0ff);
+    border-radius: 20px;
+    animation: rotation 4s linear infinite;
+}
+
+.glowing-gradient::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    background: repeating-conic-gradient(from var(--angle), #0f0, #ff0, #0ff, #f0f, #0ff);
+    border-radius: 20px;
+    filter: blur(40px);
+    opacity: 0.75;
+    animation: rotation 4s linear infinite;
+}
+
+.glowing-gradient span {
+    position: absolute;
+    inset: 4px;
+    background: #222;
+    border-radius: 16px;
+    z-index: 1;
+}
+
+.glowing-gradient > .glowing-gradient {
+    position: absolute;
+    inset: 0 -50px;
+    height: 150px;
+    width: 500px;
+    top: 75px;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotation {
+    from {
+        --angle: 0deg;
+    }
+    to {
+       --angle: 360deg;
+    }
+}
