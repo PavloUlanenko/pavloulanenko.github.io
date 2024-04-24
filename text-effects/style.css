@@ -130,3 +130,44 @@ html, body {
     background: rgba(0,0,0,.95);
 }
 /*/BACKGROUND-CLIP-TEXT*/
+
+/* COLORING ANIMATED TEXT */
+.coloring-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  background-color: #252839;
+}
+
+.coloring-animation > h2 {
+  position: relative;
+  font-size: 14vw;
+  color: #252839;
+  -webkit-text-stroke: 0.3vw #383d52;
+  text-transform: uppercase;
+}
+
+.coloring-animation > h2::before {
+  content: attr(data-text);
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  color: #01fe87;
+  overflow: hidden;
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #01fe87;
+  animation: reveal-text 6s linear infinite;
+}
+
+@keyframes reveal-text {
+  0%,10%,100% {
+    width: 0;
+  }
+  70%,90% {
+    width: 100%;
+  }
+}
+/* COLORING ANIMATED TEXT END */
