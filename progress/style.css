@@ -1,0 +1,71 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100dvh;
+    background-color: #161616;
+}
+
+.container-1-wrap {
+    gap: 30px;
+    position: relative;
+    display: flex;
+}
+
+.container-1-wrap > .box {
+    width: 240px;
+    padding: 40px 0;
+    position: relative;
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-1-wrap > .box h2 {
+    position: relative;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.container-1-wrap > .box h2 small {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.container-1-wrap > .box h3 {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+
+.container-1-wrap > .box > .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-image: conic-gradient(from 0deg, var(--progress-color) 0%, var(--progress-color) 0% var(--progress-value), #333 var(--progress-value), #333 100%);
+}
+
+.container-1-wrap > .box > .circle::before {
+    content: '';
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background-color: #25252b;
+}
