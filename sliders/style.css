@@ -1,0 +1,95 @@
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* SLIDER 1 START */
+.slider-1 {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    background-color: #222;
+}
+
+.slider-1 [name=control-item] {
+    appearance: none;
+}
+
+.slider-1 > .dots {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    z-index: 1;
+}
+
+.slider-1 > .dots > label {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    opacity: .5;
+    border: 2px solid #222;
+}
+
+.slider-1 [name=control-item]:nth-child(1):checked ~ .dots > label:nth-child(1),
+.slider-1 [name=control-item]:nth-child(2):checked ~ .dots > label:nth-child(2),
+.slider-1 [name=control-item]:nth-child(3):checked ~ .dots > label:nth-child(3),
+.slider-1 [name=control-item]:nth-child(4):checked ~ .dots > label:nth-child(4),
+.slider-1 [name=control-item]:nth-child(5):checked ~ .dots > label:nth-child(5) {
+    opacity: 1;
+}
+
+.slider-1 > .slider {
+    position: absolute;
+    inset: 0;
+}
+
+.slider-1 > .slider > .slide {
+    position: absolute;
+    inset: 0;
+    background: var(--slider-1-img) no-repeat center/cover;
+    opacity: 0;
+    clip-path: circle(0% at 0% 50%);
+    transition: 1.5s;
+    transition-delay: 0s;
+    background-position: left;
+    display: flex;
+    align-items: flex-end;
+}
+
+.slider-1 > .slider > .slide:nth-child(even) {
+    clip-path: circle(0% at 100% 50%);
+    background-position: right;
+}
+
+.slider-1 [name=control-item]:nth-child(1):checked ~ .slider > .slide:nth-child(1),
+.slider-1 [name=control-item]:nth-child(2):checked ~ .slider > .slide:nth-child(2),
+.slider-1 [name=control-item]:nth-child(3):checked ~ .slider > .slide:nth-child(3),
+.slider-1 [name=control-item]:nth-child(4):checked ~ .slider > .slide:nth-child(4),
+.slider-1 [name=control-item]:nth-child(5):checked ~ .slider > .slide:nth-child(5) {
+   opacity: 1;
+   clip-path: circle(150% at 50% 50%);
+   transition-delay: 1s;
+   background-position: center;
+}
+
+.slider-1 > .slider > .slide > .content {
+    position: relative;
+    padding: 50px 50px 120px 80px;
+    max-width: 550px;
+    color: #fff;
+}
+
+.slider-1 > .slider > .slide > .content > h2 {
+    font-size: 3em;
+}
+/* SLIDER 1 END */
